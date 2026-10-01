@@ -1,0 +1,28 @@
+[
+  {
+    "script_id": "BU26-BA-7Q3K",
+    "question_id": "Q1",
+    "pages": ["samples/BU26-BA-7Q3K_p1.png", "samples/BU26-BA-7Q3K_p2.png"],
+    "is_seed": false
+  },
+  {
+    "script_id": "RG26-BS-2M8P",
+    "question_id": "Q2",
+    "pages": ["samples/RG26-BS-2M8P_p1.png", "samples/RG26-BS-2M8P_p2.png"],
+    "is_seed": false
+  },
+  {
+    "script_id": "BU26-BA-5T1W",
+    "question_id": "Q1",
+    "pages": ["samples/BU26-BA-5T1W_p1.png"],
+    "is_seed": true,
+    "gold": {"C1": 1, "C2": 1, "C3": 0, "C4": 1},
+    "gold_note": "Anchor script pre-marked by the Chief Examiner (band: below average)."
+  },
+  {
+    "script_id": "BU26-BA-9X4D",
+    "question_id": "Q1",
+    "pages": ["samples/BU26-BA-9X4D_p1.png"],
+    "is_seed": false
+  }
+]

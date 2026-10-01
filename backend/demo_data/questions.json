@@ -1,0 +1,70 @@
+{
+  "Q1": {
+    "id": "Q1",
+    "course": "BA Part II — Political Science, Paper I",
+    "text": "संसदीय संप्रभुता से आप क्या समझते हैं? इसकी प्रमुख विशेषताएँ लिखिए तथा भारत के संदर्भ में इसकी स्थिति स्पष्ट कीजिए।",
+    "text_en": "What is parliamentary sovereignty? State its main features and explain its position in the Indian context.",
+    "max_marks": 10,
+    "model_answer": "संसदीय संप्रभुता (डायसी) का अर्थ है कि संसद को कोई भी कानून बनाने या रद्द करने की असीमित वैधानिक शक्ति है और कोई न्यायालय उसके कानून को अवैध घोषित नहीं कर सकता। विशेषताएँ: (क) असीमित विधायी शक्ति, (ख) न्यायालय संसद के कानून को रद्द नहीं कर सकते, (ग) कोई संसद अपनी उत्तराधिकारी संसद को बाध्य नहीं कर सकती, (घ) संवैधानिक और साधारण कानून में कोई अंतर नहीं। उदाहरण: ब्रिटेन की संसद। भारत में संसद पूर्णतः संप्रभु नहीं है: लिखित संविधान, न्यायिक पुनरावलोकन, मूल ढाँचे का सिद्धांत (केशवानंद भारती, 1973) और संघीय शक्ति-विभाजन इसकी सीमाएँ हैं।",
+    "rubric": [
+      {
+        "id": "C1",
+        "name": "परिभाषा · Definition",
+        "max": 2,
+        "description": "2 = precise definition: Parliament's legally unlimited, supreme law-making power (Dicey), courts cannot override it. 1 = vague ('Parliament is the highest body')."
+      },
+      {
+        "id": "C2",
+        "name": "विशेषताएँ · Features",
+        "max": 4,
+        "description": "1 mark each, up to 4: (a) unlimited law-making power; (b) courts cannot invalidate Acts of Parliament; (c) a Parliament cannot bind its successors; (d) no distinction between constitutional and ordinary law. Statements that are not features of sovereignty earn 0."
+      },
+      {
+        "id": "C3",
+        "name": "भारतीय संदर्भ · Indian context",
+        "max": 2,
+        "description": "Limits on the Indian Parliament: written constitution, judicial review, basic-structure doctrine (Kesavananda Bharati, 1973), federal division of powers. 2 = two or more limits correctly explained; 1 = one limit."
+      },
+      {
+        "id": "C4",
+        "name": "उदाहरण व निष्कर्ष · Example & conclusion",
+        "max": 2,
+        "description": "1 = valid example (e.g. UK Parliament). 1 = balanced conclusion. 0.5 = conclusion present but one-sided."
+      }
+    ]
+  },
+  "Q2": {
+    "id": "Q2",
+    "course": "B.Sc. Part I — Physics (Electronics)",
+    "text": "NPN ट्रांजिस्टर की कार्यप्रणाली समझाइए तथा Common Emitter (CE) विन्यास का परिपथ आरेख बनाइए।",
+    "text_en": "Explain the working of an NPN transistor and draw the circuit diagram of the Common Emitter (CE) configuration.",
+    "max_marks": 10,
+    "model_answer": "NPN transistor has three regions: emitter (heavily doped), base (thin, lightly doped) and collector. For active operation the emitter-base junction is forward biased and the collector-base junction is reverse biased. Electrons from the emitter cross the thin base; most reach the collector. I_E = I_B + I_C. A small base current controls a large collector current (current gain β = I_C / I_B), which gives amplification. CE circuit: V_BB through R_B to the base, V_CC through R_C to the collector, emitter common to input and output and grounded; input across base-emitter, output across collector-emitter.",
+    "rubric": [
+      {
+        "id": "C1",
+        "name": "संरचना · Structure",
+        "max": 2,
+        "description": "1 = names the three regions (emitter, base, collector). 1 = states the base is thin AND lightly doped (0.5 if only one of these)."
+      },
+      {
+        "id": "C2",
+        "name": "बायसिंग · Biasing & working",
+        "max": 3,
+        "description": "1 = emitter-base junction forward biased. 1 = collector-base junction reverse biased. 1 = electrons flow from emitter through the thin base to the collector."
+      },
+      {
+        "id": "C3",
+        "name": "धारा संबंध · Currents & amplification",
+        "max": 2,
+        "description": "1 = I_E = I_B + I_C. 1 = small base current controls a large collector current, or current gain β = I_C / I_B."
+      },
+      {
+        "id": "C4",
+        "name": "परिपथ आरेख · CE circuit diagram",
+        "max": 3,
+        "description": "1 = NPN symbol with emitter arrow pointing out. 1 = V_BB/R_B on the base side and V_CC/R_C on the collector side. 1 = emitter common and grounded, input and output terminals labelled."
+      }
+    ]
+  }
+}

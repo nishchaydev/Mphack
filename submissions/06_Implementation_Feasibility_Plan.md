@@ -59,7 +59,7 @@ PARIKSHAK-AI is engineered with a **Non-Invasive Microservice Architecture**. It
 
 ## 3. Physical-to-Digital Scanning Protocol (The Anti-Tampering Standard)
 
-To eliminate the physical security vulnerabilities that halted DAVV Indore’s digital evaluation rollout in July 2026 (fear of guillotine spine-cutting, page-swapping, and unstitched sheet theft), PARIKSHAK-AI establishes a **Two-Tier Non-Destructive Scanning Standard**:
+To eliminate the physical security vulnerabilities that paused DAVV Indore’s digital evaluation rollout in 2026 (fear of guillotine spine-cutting, page-swapping, and unstitched sheet theft), PARIKSHAK-AI establishes a **Two-Tier Non-Destructive Scanning Standard**:
 
 ### Tier 1: Non-Destructive Overhead V-Cradle Scanning (High-Stakes & Professional Exams)
 * **Equipment:** High-speed overhead book scanners (e.g., CZUR M3000 Pro / Zeutschel OS 12002) equipped with V-shaped book cradles and auto-flattening curve algorithms.
@@ -82,7 +82,7 @@ To guarantee total compliance with the **Digital Personal Data Protection (DPDP)
 * **Disaster Recovery (DR) Site:** TCS Tier-4 Data Centre / MeitY-empanelled CSP (AWS / Azure Central India).
 * **Compute Sizing for Statewide Peak Load (500,000 Booklets / Day):**
   * *Inference Cluster:* 4x Enterprise AI Nodes, each hosting 4x NVIDIA L40S 48GB GPUs (16 GPUs total) running quantized open-weights Indic Multimodal Vision models (e.g., Qwen2.5-VL / Sarvam Indic VLM) with vLLM PagedAttention.
-  * *Throughput Capacity:* 480 question-bundle evaluations per second, clearing 500,000 booklets daily during peak valuation hours (10:00 AM – 5:00 PM).
+  * *Throughput target:* ~120 question evaluations per second (500,000 booklets a day over a 7-hour window) with headroom, to be confirmed by benchmarking the chosen model on this hardware.
   * *Storage Infrastructure:* 150 TB encrypted NVMe-backed MinIO S3 object storage configured with write-once-read-many (WORM) immutability policies.
 
 ---
@@ -91,12 +91,12 @@ To guarantee total compliance with the **Digital Personal Data Protection (DPDP)
 
 | # | Identified Risk Domain | Severity | Operational / Technical Mitigation in PARIKSHAK-AI |
 |---|------------------------|:--------:|----------------------------------------------------|
-| **1** | **Teacher Union Resistance (University Faculty Associations)** | **HIGH** | Replace punitive screen lockouts with a **3-Tier Progressive Friction Protocol** (Soft Nudge $\rightarrow$ Touchpoint Gate $\rightarrow$ Silent Shadow Review). Recommend hiking examiner honorariums from ₹15 to ₹40/copy funded by ₹25 Cr logistics savings. |
+| **1** | **Teacher Union Resistance (University Faculty Associations)** | **HIGH** | Replace punitive screen lockouts with a **3-Tier Progressive Friction Protocol** (Soft Nudge $\rightarrow$ Touchpoint Gate $\rightarrow$ Silent Shadow Review). Recommend raising examiner honorariums, funded partly from logistics savings. |
 | **2** | **Rural Bandwidth Fluctuation** | **MEDIUM** | Deploy **Local Edge Caching Appliances (LECA)** at District Lead Colleges (*Agrani Mahavidyalayas*) to pre-download daily bundles overnight, serving evaluators over local high-speed LAN without active internet dependencies. |
 | **3** | **Spine-Cutting / Page Swapping** | **HIGH** | Mandate non-destructive V-cradle overhead scanners for professional courses; require leaf-level 2D serialized DataMatrix codes for ADF scanners. |
 | **4** | **Adversarial Prompt Injection** | **MEDIUM** | Dual-turn sandboxed inference: Turn 1 extracts visual text into strict JSON schemas with zero command execution; Turn 2 evaluates within CDATA boundaries. Transcribed text pre-screened for injection signatures. |
 | **5** | **Low Paper GSM & Ink Bleed-Through** | **MEDIUM** | Adaptive preprocessing pipeline applying Sauvola binarization and morphological background subtraction to eliminate reverse-page ink bleed-through on 54–60 GSM paper. |
-| **6** | **Displaced Revaluation Cash Flow** | **MEDIUM** | Provide university Executive Councils with audited Net Fiscal Surplus models showing +₹1.26 Crore annual net savings from eliminated paper transport, armed escorts, and court litigation costs. |
+| **6** | **Displaced Revaluation Cash Flow** | **MEDIUM** | Provide university Executive Councils with an estimated net operating balance (about +₹0.7 Crore a year for a 30-Lakh-script university) from reduced paper transport, escorts and litigation costs. |
 
 ---
 
@@ -116,14 +116,14 @@ PARIKSHAK-AI operates as a **zero-capex AI intelligence layer** atop existing OS
 
 | Component | Unit Cost | Volume (MP Statewide) | Annual Revenue |
 | :--- | :--- | :--- | :--- |
-| AI Copilot Inference (Gemini Flash) | ₹1.14 / booklet | 3.04 Crore scripts | ₹3.47 Crore |
+| AI Copilot Inference (Gemini Flash, priced to cover current model cost) | ₹3.00 / booklet | 3.04 Crore scripts | ₹9.12 Crore |
 | Seed Calibration & Velocity Sentinel SaaS | ₹1.50 / booklet | 3.04 Crore scripts | ₹4.56 Crore |
 | Section 63 BSA Dossier Generation | ₹0.50 / booklet | 3.04 Crore scripts | ₹1.52 Crore |
 | Command Center Dashboard (Annual License) | ₹15 Lakh / university | 25 universities | ₹3.75 Crore |
-| **Total MP Annual Revenue** | | | **₹13.30 Crore** |
+| **Total MP Annual Revenue** | | | **₹18.95 Crore** |
 
 ### B. Strategic Alignment with MPOnline's Revenue Expansion
 MPOnline currently earns ~₹25 Crore/year from higher education form fees alone. The evaluation market (₹60–₹75 Crore/year for 3.04 Crore scripts across MP) remains **uncaptured revenue** lost to fragmented private vendor tenders. PARIKSHAK-AI enables MPOnline to expand from upstream form collection into high-value downstream evaluation processing—doubling higher education revenue without additional kiosk infrastructure.
 
 ### C. Funding via PM-USHA & RUSA Grants
-MP state universities are eligible for **₹20 to ₹40 Crore per institution** under PM-USHA (₹12,926 Crore national outlay) specifically for examination automation and IT infrastructure. PARIKSHAK-AI deployment qualifies as a **PM-USHA-compliant examination reform investment**, making the solution **self-funded from central government grants** rather than university operating budgets.
+MP state universities can seek infrastructure and IT-upgrade grants under PM-USHA (₹12,926 Crore national outlay), which can fund examination automation. PARIKSHAK-AI deployment qualifies as a **PM-USHA-compliant examination reform investment**, making the solution **self-funded from central government grants** rather than university operating budgets.

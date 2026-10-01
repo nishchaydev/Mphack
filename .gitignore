@@ -46,3 +46,10 @@ docker-compose.override.yml
 
 # Compiled PDFs (user formats separately)
 *.pdf
+
+# POC runtime state (cache, signing key, ledger, uploads)
+backend/runtime/
+.pytest_cache/
+
+# Upload-ready submission PDFs are committed on purpose
+!submission_pdfs/*.pdf

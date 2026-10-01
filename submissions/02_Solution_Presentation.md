@@ -9,7 +9,7 @@
 
 ### SLIDE 1: Title & Executive Vision
 * **Title:** PARIKSHAK-AI (परीक्षक-AI)
-* **Tagline:** Bhashini-Powered Cognitive Copilot & Quality Assurance Architecture for On-Screen Marking
+* **Tagline:** AI Examiner Copilot & Quality Assurance for On-Screen Marking (Hindi + English)
 * **Target Environment:** MPOnline Portal & 94 State & Private Universities across Madhya Pradesh
 * **Core Philosophy:** *Human-in-the-Loop AI* — AI empowers and calibrates the examiner; final evaluative authority remains strictly with faculty.
 * **Presented by:** Team eMitra (Technical Track)
@@ -27,9 +27,8 @@
 ---
 
 ### SLIDE 3: Ground Reality — Recent Systemic Failures in MP
-* **Barkatullah University (BU), Bhopal (Aug 2026):** Outsourced evaluation vendor triggered a **30% error rate across published results**; 10,000+ student grievances; attended students marked "Absent"; single-digit truncations.
-* **Devi Ahilya Vishwavidyalaya (DAVV), Indore (2025–2026):** **3,800 out of 4,000 B.Ed candidates failed** due to uncalibrated grading; MBA digital evaluation stalled after CBSE tender security red flags.
-* **Vikram University, Ujjain:** Processing anomalies resulted in an MBA student officially awarded **1604 marks out of 1600**.
+* **Barkatullah University (BU), Bhopal:** discrepancies suspected in **~30% of results** from an outsourced processing agency; ~10,000 complaints; students who appeared marked "Absent", zero marks, wrong subjects.
+* **Devi Ahilya Vishwavidyalaya (DAVV), Indore:** only **~43% of ~7,200 B.Ed candidates passed**; allegations of faulty evaluation led to an expert re-evaluation of answer sheets. MBA digital evaluation plans were paused over security concerns.
 * **Result Delays:** Average turnaround of **3 to 14 months** across regional universities (BU, Jiwaji, RDVV), causing revoked corporate job offers and missed postgraduate admission deadlines.
 * **The Revaluation Levy:** Students in MP pay **₹30 to ₹45 Crore annually** in non-refundable revaluation fees to fix evaluator oversights.
 
@@ -47,7 +46,7 @@
 | 7 | Real-Time Evaluation Dashboards | Controller of Examinations (CoE) Live State-wide Command Center |
 | 8 | Scoring Malpractice / Bias Detection | Shannon Entropy Profiling & Isolation Forest Anomaly Detection |
 | 9 | Faster Result Processing | Zero-Touch Auto-Tabulation directly into MPOnline ERP |
-| 10| Mobile-Enabled Examiner Interface | Touch & Stylus Responsive PWA (MP High Court June 2026 Mandate) |
+| 10| Mobile-Enabled Examiner Interface | Touch & Stylus Responsive PWA (in line with the MP High Court's June 2026 recommendation) |
 
 ---
 
@@ -81,17 +80,17 @@
 * **USP 1: Native Multimodal Ingestion for Hindi / Hinglish**
   * *The Trap:* Standard OCR (PaddleOCR/Tesseract) achieves only 45–65% accuracy on messy handwritten Devanagari; OCR errors cascade into hallucinated grading.
   * *Our Innovation:* End-to-end vision-language reasoning ingests raw handwritten strokes directly, understanding Hindi idioms, technical equations, and circuit schematics without brittle OCR intermediaries.
-* **USP 2: Blind Seed-Script Calibration (First Time in Indian State Universities)**
+* **USP 2: Blind Seed-Script Calibration (Cambridge / IB Practice)**
   * *Mechanism:* Chief Examiners pre-score 5 benchmark scripts (Exemplar, Above Average, Average, Borderline, Poor).
   * *Execution:* Seed scripts are invisibly inserted into examiner batches.
-  * *Drift Correction:* If an examiner marks a calibrated 10-mark question at 17/20 (exceeding ±15% tolerance), the system pauses marking and launches a rubric refresher.
+  * *Drift Correction:* If an examiner gives 9/10 to an anchor the Chief Examiner marked 3/10 (60% drift; tolerance 15%), the CoE is alerted and the examiner's next scripts are silently routed to the Head Examiner.
 
 ---
 
 ### SLIDE 7: Breakthrough USP 3 & 4 — Cognitive Velocity & Question Forensics
 * **USP 3: Cognitive Velocity Floor & Rubber-Stamp Detection**
-  * *Velocity Floor:* Implements physiological reading speed floor: \(T_{min} = \frac{\text{Word Count}}{200} \times 60 + 5\text{s}\).
-  * *Enforcement:* Submitting an evaluation for a 500-word answer in under 15 seconds triggers a **Speed Anomaly Lock**, redirecting the paper to a moderator.
+  * *Velocity Floor:* Reading floor per answer: \(T_{min} = (N_{words}/200 + 0.5\,N_{eq} + 0.75\,N_{diag}) \times 60 + 10\text{s}\).
+  * *Progressive friction, never a lock:* a soft prompt first, then the examiner must check at least one rubric criterion; repeated speed-checking is silently routed for a second reading.
   * *Entropy Check:* Evaluates the Shannon Entropy of awarded mark distributions. An examiner awarding identical 14/20 marks across 50 scripts exhibits \(H(X) < 1.0\), immediately flagging "rubber-stamping."
 * **USP 4: Live Question Paper Psychometric Forensics**
   * *Item Discrimination:* Real-time computation of Point-Biserial Correlation (\(r_{pbis}\)) and Difficulty Indices across candidate cohorts.
@@ -100,15 +99,15 @@
 ---
 
 ### SLIDE 8: Breakthrough USP 5 — 1-Click RTI Defense Dossier
-* **Legal Context:** MP High Court Division Bench (June 2026) mandated transparent digital evaluation protocols with verifiable examiner annotations.
-* **The Capability:** Generates a tamper-evident, court-ready verification PDF in under 2 seconds.
+* **Legal Context:** The MP High Court Division Bench (June 2026) upheld digital evaluation and recommended marking with a pen on a touch screen, so students can see where marks were given.
+* **The Capability:** Generates a tamper-evident audit PDF in one click; any later change to the stored marks is detected.
 * **Contents of Dossier:**
   1. High-resolution student script with anonymized fictitious identifier.
   2. Model marking scheme and analytic rubric criteria.
   3. Step-by-step awarded marks with exact quoted evidence from student text.
   4. Examiner dwell-time per page, timestamp log, and digital signature.
-  5. SHA-256 cryptographic hash verifying document immutability.
-* **Administrative Impact:** Reduces university RTI response handling from 45 days to instantaneous dispatch, terminating frivolous litigation.
+  5. Signed SHA-256 Merkle root and the technical particulars for a Section 63 BSA certificate.
+* **Administrative Impact:** Cuts RTI response preparation from weeks to minutes.
 
 ---
 
@@ -118,7 +117,7 @@
 * **PARIKSHAK-AI Bolt-On:** Operates as a stateless microservice communicating over encrypted mTLS REST APIs.
 * **Data Flow:** Scanned booklet images accessed via short-lived, pre-signed HTTPS URLs; evaluated marks and audit logs returned as structured JSON payloads for automated tabulation.
 * **Tech Stack:**
-  * *Cognitive Engine:* Python 3.11, FastAPI, Multimodal Vision LLM (Gemini 2.0 Flash / Pro).
+  * *Cognitive Engine:* Python 3.11, FastAPI, multimodal vision LLM (current Gemini Flash; self-hosted Indic VLM for production).
   * *Analytics & ML:* scikit-learn (Isolation Forest), SciPy (Shannon Entropy, K-S Tests).
   * *Frontend Workspace:* React 18, TypeScript, Tailwind CSS, HTML5 Canvas / Fabric.js (Stylus & Touch enabled).
   * *Storage & Ledger:* PostgreSQL 16 (JSONB Rubrics), Redis Cache, MinIO / S3 Encrypted Storage.
@@ -126,19 +125,19 @@
 ---
 
 ### SLIDE 10: Economics, Measurable Impact & Policy Alignment
-* **Inference Cost:** **₹1.14 per 36-page booklet** (6 questions @ ₹0.19/call via multimodal token pricing) — vastly lower than administrative revaluation overhead.
+* **Inference Cost:** an estimated **₹0.5–₹3 per booklet** at current Gemini Flash-Lite/Flash prices; the proof of concept measures the real cost of every call.
 * **Turnaround Reduction:** Results published in **15 to 30 days** (compared to current 3 to 14 months).
 * **Grievance Mitigation:** Anticipated **60% to 70% decrease in revaluation requests**, saving students ₹18–₹27 Crore in distress fees annually.
 * **National Policy Compliance:**
   * *NEP 2020 (Sections 4.34–4.37 & 23.2):* Outcome-based, competency-aligned evaluation with formative diagnostic reporting.
-  * *DPDP Act 2023:* 100% data residency within India; strict role-based data minimization.
+  * *DPDP Act 2023:* production deployment keeps data in India (State Data Centre or India-region cloud); role-based data minimization.
   * *MeghRaj GI Cloud Standards:* Ready for deployment on MeitY-empanelled GovCloud or MP SDC.
 
 ---
 
 ### SLIDE 11: Phased Implementation Roadmap
 * **Phase 1: Hackathon Prototype (October 2026)**
-  * Fully functional bilingual multimodal grading engine, speed violation detector, and RTI dossier generator.
+  * Working proof of concept (built): bilingual AI pre-read, reading-time check, blind seed scripts and signed audit dossier.
 * **Phase 2: Single-University Pilot (Q1 2027)**
   * Controlled 25,000-script pilot at DAVV Indore or BU Bhopal for professional semester exams (MBA / B.Tech).
   * CERT-In empanelled security VAPT and STQC compliance audit.
@@ -150,7 +149,7 @@
 ---
 
 ### SLIDE 12: Why Team eMitra Deserves Selection
-1. **100% Coverage of Challenge 03:** Direct, production-ready engineering for all 10 problem requirements.
+1. **Covers all 10 Challenge 03 requirements**, with a working proof of concept of the core workflow.
 2. **Built for MP, Not Silicon Valley:** Solves real regional crises (BU Bhopal vendor collapse, DAVV halt, Devanagari handwriting, ₹15 examiner remuneration).
 3. **Legally Defensible & Human-Centric:** Keeps university professors in control while providing an impenetrable shield against RTI appeals and judicial disputes.
-4. **Feasible & Economical:** Bolt-on API architecture costing just ₹1.14 per script, requiring zero downtime or overhaul of MPOnline's existing ERP investments.
+4. **Feasible & Economical:** Bolt-on API architecture at an estimated ₹0.5–₹3 per booklet in AI cost, with no overhaul of MPOnline's existing ERP.

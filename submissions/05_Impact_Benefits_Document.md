@@ -12,7 +12,7 @@ Higher education in Madhya Pradesh encompasses **27.7 Lakh enrolled students** a
 
 PARIKSHAK-AI delivers systemic, measurable impact across four critical dimensions:
 1. **Educational & Student Welfare:** Compressing result turnarounds from 3–14 months down to 15–20 days, preventing students from missing corporate recruitment onboarding and competitive exam deadlines.
-2. **Citizen-Centric Governance & Institutional Trust:** Delivering responsive, transparent public service delivery under MP's Lok Seva Guarantee standards; eliminating catastrophic data-entry errors (e.g., BU Bhopal’s August 2026 30% error rate and Vikram University’s 1604/1600 anomaly) through automated validation.
+2. **Citizen-Centric Governance & Institutional Trust:** Delivering responsive, transparent public service delivery under MP's Lok Seva Guarantee standards; preventing result-processing errors such as those behind BU Bhopal’s ~30% suspected result discrepancies, through validation at the point of entry.
 3. **Fiscal & Economic Balancing:** Replacing a predatory ₹35+ Crore revaluation burden on distressed students with an equitable evaluation model, while saving universities ₹7.0+ Crore in paper logistics, confidential transport, and legal fees.
 4. **Equity & Linguistic Inclusion:** Giving Hindi-medium examinees (an estimated 60%+ of MP state university enrollments in general streams) equal evaluative fidelity through native multimodal reasoning.
 
@@ -24,11 +24,13 @@ PARIKSHAK-AI delivers systemic, measurable impact across four critical dimension
 | :--- | :--- | :--- | :--- |
 | **Result Declaration Window** | 90 to 420 days (3 to 14 months) | **20 to 30 days** post-examination | **75% to 85% Turnaround Reduction** |
 | **Unassessed Questions / Pages** | 12% to 18% of evaluated booklets | **< 0.1%** (Automated Page Traversal Guard) | **99% Elimination of Omission Errors** |
-| **Inter-Examiner Variance** | High ($\kappa = 0.45 - 0.55$) | Calibrated ($\kappa = 0.82 - 0.88$) | **High Reliability Across Cohorts** |
+| **Inter-Examiner Variance** | Not measured during marking today | Measured continuously via blind seed scripts | **Drift caught during marking, not after results** |
 | **Student Revaluation Requests** | 6 Lakh to 9 Lakh applications / year | **1.8 Lakh to 2.5 Lakh** applications / year | **65% to 70% Grievance Reduction** |
 | **Examiner Evaluation Velocity** | 30–40 booklets / day (Glance-Checking) | **50–65 booklets / day** (Copilot Assisted) | **50% Productivity Increase without Fatigue** |
 | **RTI Response Generation Time** | 30 to 45 days (Manual Strong Room Search) | **< 2 seconds** (Automated PDF Dossier) | **Instantaneous Administrative Defense** |
-| **AI Unit Inference Cost** | Not Applicable | **₹1.14 per 36-page booklet** | **Economically Self-Sustaining** |
+| **AI Unit Inference Cost** | Not Applicable | **~₹0.5–₹3 per booklet** (estimate) | **Small relative to logistics savings** |
+
+*Projected figures are targets to be validated in a university pilot; current-state figures are estimates from public reporting.*
 
 ---
 
@@ -36,7 +38,7 @@ PARIKSHAK-AI delivers systemic, measurable impact across four critical dimension
 
 A major administrative concern for state universities (DAVV, BU Bhopal, Jiwaji, RDVV) is the displacement of revaluation fee revenue. MP state universities collect between ₹500 and ₹1,500 per paper for revaluation, generating an estimated **₹30 to ₹45 Crore annually**. 
 
-Below is the audited Net Operational Balance Sheet demonstrating how PARIKSHAK-AI delivers a **Net Positive Fiscal Surplus (+₹2.0 Crore to +₹3.5 Crore)** for an average state university evaluating 15 Lakh answer scripts per semester cycle:
+Below is our estimated net operating balance for a state university evaluating 15 Lakh answer scripts per semester (30 Lakh a year). It shows a **modest net surplus of about +₹0.7 Crore a year**; every line is an estimate to be validated in a pilot:
 
 ### University Operational Balance Sheet (Annual Basis: 30 Lakh Scripts)
 
@@ -56,20 +58,20 @@ Below is the audited Net Operational Balance Sheet demonstrating how PARIKSHAK-A
 │  • Avoided MP High Court Legal Defense & Contempt Fines:       + ₹0.90 Crore │
 │                                                                             │
 │  [ PARIKSHAK-AI OPERATIONAL EXPENDITURE ]                                   │
-│  • AI Multimodal Inference (30 Lakh scripts @ ₹1.14):          - ₹0.34 Crore │
+│  • AI Multimodal Inference (30 Lakh scripts @ up to ₹3):       - ₹0.90 Crore │
 │  • SDC Server & Cloud Storage Overhead:                        - ₹0.40 Crore │
 │                                                                             │
 │  ─────────────────────────────────────────────────────────────────────────  │
-│  NET ANNUAL FISCAL SURPLUS TO UNIVERSITY:                      + ₹1.26 Crore│
+│  NET ANNUAL FISCAL SURPLUS TO UNIVERSITY (ESTIMATE):           + ₹0.70 Crore│
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### The Examiner Incentive Realignment
-With over ₹3.0 Crore saved in physical logistics, university Executive Councils can restructure examiner compensation:
-* Hike evaluation honorariums from **₹15 to ₹35–₹40 per script**.
-* Faculty receive higher total daily earnings (₹1,500–₹2,000/day vs. ₹600/day) while working with an AI Copilot that reduces eye strain and tedious handwriting deciphering.
-* Eliminates teacher union friction and guarantees enthusiastic faculty adoption across MP colleges.
+Part of the logistics savings can go to examiners. Each ₹1 added per script costs about ₹30 Lakh a year at 30 Lakh scripts, so the surplus funds a modest raise; a larger raise needs separate funding:
+* Raise evaluation honorariums in steps, starting with high-effort subjects.
+* Faculty work with an AI copilot that reduces eye strain and tedious handwriting deciphering.
+* Better pay and a lighter reading burden support faculty adoption.
 
 ---
 
@@ -80,7 +82,7 @@ With over ₹3.0 Crore saved in physical logistics, university Executive Council
 2. **Eligibility for Civil & Public Service Examinations:**  
    Aspirants appearing for UPSC CSE, MPPSC State Services, SSC CGL, and Banking (IBPS PO) require valid provisional degree certificates by strict cut-off dates. Accelerating result publication prevents candidates from losing entire annual examination cycles or crossing maximum age limits.
 3. **Ending the "Revaluation Tax" on Poor & Rural Students:**  
-   Students from rural tehsils in Bundelkhand, Baghelkhand, and Nimar frequently travel 200–300 km to Bhopal or Indore, staying in lodges to contest arbitrary failing marks. Reducing first-tier evaluation error by 70% saves families thousands of rupees in avoidable travel, RTI fees, and revaluation charges.
+   Students from rural tehsils in Bundelkhand, Baghelkhand, and Nimar frequently travel 200–300 km to Bhopal or Indore, staying in lodges to contest arbitrary failing marks. Reducing first-tier evaluation errors saves families thousands of rupees in avoidable travel, RTI fees, and revaluation charges.
 
 ---
 
@@ -97,12 +99,12 @@ With over ₹3.0 Crore saved in physical logistics, university Executive Council
 * **Metric 2.5.3 (Examination Management Automation):** Fully integrates On-Screen Evaluation into the university's digital EMS.
 
 ### C. PM-USHA (Pradhan Mantri Uchchatar Shiksha Abhiyan) Fund Unlocking
-* Aligns with the **₹12,926 Crore PM-USHA national outlay**, qualifying MP state universities for **₹20 to ₹40 Crore institutional technology upgrade grants** specifically earmarked for 100% automation of examination branches.
+* Aligns with the **₹12,926 Crore PM-USHA national outlay**, under which state universities can seek infrastructure and IT-upgrade grants that can fund examination-branch automation.
 
 ### D. MP State AI Mission (Announced March 2026)
-* Directly operationalizes **Phase 1 (2026–27) of Chief Minister Dr. Mohan Yadav's State AI Mission**, establishing scalable public-sector AI infrastructure.
-* Adheres to the state's strategic partnership with **Digital India BHASHINI** for multilingual public governance.
+* Aligns with **Phase 1 (2026–27) of Chief Minister Dr. Mohan Yadav's State AI Mission**, establishing scalable public-sector AI infrastructure.
+* Student feedback summaries can be translated with **Digital India BHASHINI** services (planned).
 
 ### E. Digital Personal Data Protection (DPDP) Act 2023 & MeghRaj Standards
-* **Data Sovereignty:** 100% of student answer scripts, audit trails, and biometric signatures are hosted within the **MP State Data Centre (SDC) in Bhopal** or MeitY-empanelled Indian GovCloud. Zero data traverses foreign borders.
+* **Data Sovereignty:** In production, answer scripts, audit trails and signatures are hosted in the **MP State Data Centre (SDC), Bhopal** or a MeitY-empanelled Indian cloud, and AI inference runs on a model hosted there or in an India-region cloud. (Our proof of concept calls Google's Gemini API.)
 * **Data Minimization:** Role-based access ensures examiners see only masked fictitious codes, never candidate identities.

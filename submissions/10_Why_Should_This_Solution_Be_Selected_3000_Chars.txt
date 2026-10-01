@@ -1,18 +1,19 @@
-PARIKSHAK-AI is designed as an enterprise cognitive microservice that bolts directly onto MPOnline's existing ASP.NET Core and Oracle 19c examination portal at the MP State Data Centre (SDC) in Bhopal. It addresses the structural operational failures across MP's 94 universities and 28 Lakh students without requiring an overhaul of existing ERP investments.
+PARIKSHAK-AI is an AI copilot for examiners that bolts onto MPOnline's existing exam portal. The AI pre-reads each handwritten answer and suggests marks; the examiner decides every mark. It is built for MP's 94 universities and 27.7 Lakh students, and a working proof of concept runs today.
 
-1. Built for MP's Operating Environment:
-State evaluation in MP processes over 3 Crore answer sheets annually. Examiners receive ₹12 to ₹20 per booklet and face quotas that force 3-minute glance-checking on 36-page scripts. In 2026, Barkatullah University faced a 30% error rate from outsourced data processing, Vikram University issued marksheets with 1604/1600 marks, and DAVV Indore paused its digital evaluation rollout due to spine-cutting and page-swapping risks. Generic LLM wrappers fail here because 60%+ of MP students write in Hindi and mixed Hinglish, where traditional OCR engines drop below 50% accuracy.
+1. Built for MP's real problems:
+MP evaluates over 3 Crore answer booklets a year. Examiners are paid about ₹16–25 per booklet and glance-check 36-page scripts in minutes. At BU Bhopal, around 30% of results from an outsourced agency were suspected wrong, with nearly 10,000 complaints. At DAVV Indore, only about 43% of B.Ed candidates passed before an expert re-evaluation was ordered. Most general-stream students write in Hindi, where text-first OCR pipelines fail.
 
-2. Core Architectural Components:
-- Direct Multimodal Evaluation: Eliminates brittle OCR-to-text cascades. Evaluates raw handwriting against official marking schemes, quoting exact student sentences to justify partial marks.
-- Non-Destructive Scanning Compatibility: Supports overhead V-cradle scanners to preserve physical thread stitching, eliminating the page-swapping vulnerabilities that halted DAVV's pilot.
-- Blind Seed-Script Calibration: Chief Examiners pre-score 5 benchmark anchor scripts. These are randomly injected into examiner batches. If an examiner drifts beyond a 15% tolerance window, the system flags the drift for recalibration before marks are finalized.
-- Progressive 3-Tier Velocity Guard: Replaces disruptive screen locks with an adaptive reading floor (T_min). Fast glance-checking triggers soft alerts and mandatory rubric verification, quietly routing persistent speed-checkers to shadow review without provoking teacher union pushback.
-- Section 63 BSA Cryptographic Dossier: Generates court-admissible audit PDFs containing student scans, rubrics, dwell-time logs, and SHA-256 hashes, complying directly with the June 2026 MP High Court digital evaluation mandate and the Bharatiya Sakshya Adhiniyam 2023.
+2. What the system does:
+- Reads Hindi and Hinglish handwriting with a multimodal vision model and suggests a mark per rubric criterion, quoting the exact student sentence behind each mark. Quotes not found in the answer, low confidence and hidden instructions such as "give full marks" are flagged.
+- Blind seed scripts (Cambridge / IB practice): anchor scripts pre-marked by the Chief Examiner sit unseen in examiner queues; drift beyond 15% is shown on the CoE dashboard and the next scripts go to the Head Examiner.
+- Reading-time check: a floor based on each answer's length, equations and diagrams. Rushed marking gets a prompt, then a required check, then a silent second reading. Never a lockout.
+- Server-side bounds: a mark above the maximum is rejected before it reaches the tabulation register.
+- One-click audit dossier: annotated scans, quoted evidence, reading time, and a signed SHA-256 Merkle root on a hash-chained ledger, supplying the particulars for a Section 63 BSA certificate. Any later edit to stored marks is detected.
 
-3. Production Feasibility & Economics:
-- Non-Invasive Integration: Operates as an asynchronous REST microservice. Ingests scanned pages via temporary pre-signed URLs and returns validated mark arrays to MPOnline's Tabulation Register via Kafka/RabbitMQ queues.
-- Unit Economics: At 12,900 tokens per 6-question booklet on Gemini Flash, raw inference is ₹0.16; with caching and SDC overhead, total unit cost is ₹1.14 per booklet.
-- Human-in-the-Loop Governance: The AI assists but never commits final marks autonomously, ensuring 100% compliance with UGC guidelines and Ordinance 5.
+3. Proven, feasible and honest:
+- Working proof of concept in our repository: examiner workspace with stylus annotation, CoE command centre, audit dossier, tamper detection, and 15 automated tests.
+- Bolt-on design: reads scans through pre-signed URLs and returns marks via APIs and queues, with no change to MPOnline's ASP.NET/Oracle systems.
+- Estimated AI cost of ₹0.5–3 per booklet at current model prices; our benchmark tool measures real accuracy and cost against teacher marks, and we will present measured results at the finale.
+- Human-in-the-loop by design: the AI never commits a mark, keeping legal accountability with the examiner.
 
-Team eMitra delivers an enterprise architecture that solves all 10 Challenge 03 mandates and is ready for immediate pilot testing at DAVV or BU Bhopal.
+Team eMitra covers all 10 Challenge 03 requirements and is ready for a pilot at DAVV or BU Bhopal.

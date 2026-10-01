@@ -25,11 +25,11 @@
 
 **3 Hard-Hitting Stats (Use Large Numbers):**
 
-> **30%** — Error rate in BU Bhopal's outsourced evaluation results (Aug 2026)
+> **~30%** — BU Bhopal results suspected wrong after outsourced processing (~10,000 complaints)
 
-> **1604 / 1600** — Marks awarded to a Vikram University MBA student. More than the maximum.
+> **43%** — B.Ed pass rate at DAVV Indore before an expert re-evaluation of answer sheets was ordered
 
-> **3–14 Months** — Average result delay across MP state universities. UGC mandates 30–45 days.
+> **3–14 Months** — Average result delay across MP state universities. Ordinances expect 30–45 days.
 
 **The Root Cause:**
 - 27.7 Lakh students × 11 exams = **3.04 Crore answer scripts/year** in MP alone
@@ -59,12 +59,12 @@
 > ⚠️ **We do NOT replace the teacher. We protect the teacher.**
 
 **One-Line Pitch:**
-> A bolt-on AI intelligence layer for MPOnline's existing exam portal that brings Cambridge Assessment-grade quality control to Indian state university evaluation — at ₹1.14 per booklet.
+> A bolt-on AI intelligence layer for MPOnline's existing exam portal that brings Cambridge Assessment-grade quality control to Indian state university evaluation — for an estimated ₹0.5–3 of AI cost per booklet.
 
 **3 Design Principles:**
 1. **Human-in-the-Loop:** AI suggests, examiner decides (1-click Accept/Modify)
 2. **Bolt-On, Not Replace:** Plugs into MPOnline's existing ASP.NET/Oracle via REST APIs
-3. **Sovereign Cloud:** 100% data stays in MP State Data Centre. MeghRaj compliant.
+3. **Sovereign by design:** in production, data and inference stay in the MP State Data Centre or an India-region cloud (MeghRaj).
 
 ---
 
@@ -82,7 +82,7 @@ flowchart TB
     subgraph PARIKSHAK["🧠 PARIKSHAK-AI Layer (Our Innovation)"]
         INGEST["Scan Ingestion Gateway<br/>Pre-signed URL + Kafka Queue"]
         LAYOUT["DocLayout-YOLO<br/>Page Segmentation &<br/>Question Slicing"]
-        VISION["Gemini 2.0 Flash<br/>Multimodal Vision Engine<br/>(Hindi + English)"]
+        VISION["Gemini Flash / Indic VLM<br/>Multimodal Vision Engine<br/>(Hindi + English)"]
         CALIBRATE["Seed Calibration<br/>& Velocity Sentinel<br/>Engine"]
         COLLUSION["Semantic Collusion<br/>Detector<br/>(Embedding Clusters)"]
         BSA["Section 63 BSA<br/>Dossier Generator<br/>(SHA-256 Merkle)"]
@@ -96,7 +96,7 @@ flowchart TB
     subgraph OUTPUT["📤 Output"]
         RESULT["Result to<br/>MPOnline Oracle DB"]
         DIGI["DigiLocker / ABC<br/>NAD Push API"]
-        LEGAL["Court-Ready<br/>PDF Dossier"]
+        LEGAL["Tamper-Evident<br/>Audit Dossier"]
     end
 
     SCANNER -->|"Scanned Images"| INGEST
@@ -152,19 +152,18 @@ flowchart LR
 | Legacy Approach | Our Approach |
 |---|---|
 | Image → OCR (Tesseract) → Corrupted Text → LLM hallucinates | Image → **Direct Multimodal Vision** → Gemini reads pen strokes in context |
-| CER 35–55% on Hindi cursive | Handles Hindi, Hinglish, Malwi, Bundelkhandi dialects |
+| CER 35–55% on Hindi cursive | Handles Hindi, English and Hinglish |
 | Fails on matras, samyuktakshar | Reads meaning, not just characters |
 
-**Academic Backing:** HindiOCR-VLM (Bhattacharyya et al., ICDAR 2025), Gemini DocVQA: 93.2%
+**Working today:** our proof of concept pre-reads Hindi/Hinglish answers and quotes the evidence for every mark.
 
 ### 🎯 Innovation 2: Smart Moderation — Blind Seed Calibration
 **PS Feature:** *"Smart moderation workflows"*
 
-- Adapted from **Cambridge RM Assessor** & **IB Diploma Programme** (first time in Indian universities)
+- Adapted from **Cambridge RM Assessor** & **IB Diploma Programme** (standard practice in online marking)
 - **1 seed injected every 10 scripts** (blind — examiner can't tell)
 - ±15% tolerance → auto-flags **Evaluator Drift**
-- Progressive response: Calibration nudge → Touchpoint gate → Silent shadow review
-- **Research:** Reduces inter-rater error variance by 25–35% (Ofqual/Cambridge, Bramley 2012)
+- Drift → CoE alert; the examiner's next scripts go silently to the Head Examiner
 
 ---
 
@@ -175,7 +174,7 @@ flowchart LR
 ### ⏱️ Innovation 3: Automated Marking Anomaly Detection — Velocity Sentinel
 **PS Feature:** *"Automated detection of unchecked answers or marking anomalies"*
 
-**The Problem:** TCS iON uses a static timer (8–12 min lock). Examiner just waits it out.
+**The Problem:** Static timers on legacy OSM are easy to wait out.
 
 **Our Fix:** Dynamic, content-aware reading floor:
 
@@ -203,12 +202,12 @@ $$\text{Residual Plagiarism Index} = \frac{S_{center} - \mu_{statewide}}{\sigma_
 ### ⚖️ Innovation 5: Faster Results — Section 63 BSA Legal Defense Dossier
 **PS Feature:** *"Faster result processing" + "AI-generated evaluation summaries"*
 
-One-click court-ready PDF containing:
+One-click tamper-evident audit PDF containing:
 - Anonymized script with digital annotations
 - Criterion-level mark justifications with student text quotes
-- Dwell-time telemetry (proves examiner read every page)
-- **SHA-256 Merkle root** signed via CDAC e-Hastakshar
-- Compliant with **Bharatiya Sakshya Adhiniyam (BSA) 2023, Section 63**
+- Dwell-time telemetry (time spent on every page)
+- **SHA-256 Merkle root**, signed (CDAC eSign in production) on a hash-chained ledger
+- Supplies the particulars for a **Section 63 BSA 2023** certificate
 
 ### ✂️ Innovation 6: Item-Level Question Slicing (NEW — Cambridge/Pearson Standard)
 **PS Feature:** *"Examiner performance analytics"*
@@ -219,7 +218,7 @@ One-click court-ready PDF containing:
 | Halo Effect: bad Q1 → biases Q2–Q10 | Examiner A grades Q1 across 500 students; Examiner B grades Q2 |
 | No specialization | Faculty grade only their strongest topics |
 
-**Used by:** Cambridge (RM Assessor), IB, Pearson (ePEN). **Zero Indian vendors do this today.**
+**Used by:** Cambridge (RM Assessor), IB, Pearson (ePEN).
 
 ---
 
@@ -231,10 +230,12 @@ One-click court-ready PDF containing:
 |---|---|---|---|
 | **Result Declaration** | 90–420 days | **15–20 days** | 75–85% faster |
 | **Unassessed Pages** | 12–18% of booklets | **< 0.1%** | 99% elimination |
-| **Inter-Examiner Variance** | κ = 0.45–0.55 | **κ = 0.82–0.88** | High reliability |
+| **Inter-Examiner Variance** | Not measured during marking | **Measured live via seed scripts** | Drift caught before results |
 | **Revaluation Requests** | 6–9 Lakh/year | **1.8–2.5 Lakh/year** | 65–70% drop |
-| **RTI Response Time** | 30–45 days | **< 2 seconds** | Instant defense |
-| **AI Cost per Booklet** | N/A | **₹1.14** | Self-sustaining |
+| **RTI Response Time** | 30–45 days | **One click** | Minutes, not weeks |
+| **AI Cost per Booklet** | N/A | **~₹0.5–3 (est.)** | Measured per call |
+
+*Projected figures are targets to be validated in a pilot.*
 
 > **Citizen-centric governance:** Transparent, fast, legally defensible results for 27.7 Lakh MP students.
 
@@ -244,11 +245,11 @@ One-click court-ready PDF containing:
 
 **Title:** Strategic Alignment & National Scalability
 
-### Policy Alignment (Judges care about this — 15% weight)
+### Policy Alignment
 - **NEP 2020:** Sections 4.35, 12.2, 23.2, 23.8 — AI in assessment, competency-based evaluation
 - **NAAC Criterion 2.5:** Metrics 2.5.1 (turnaround), 2.5.2 (grievances), 2.5.3 (EMS automation)
 - **UGC Salunkhe Committee:** OBE mapping to COs/POs/Bloom's Taxonomy
-- **PM-USHA:** ₹12,926 Cr fund — ₹20–40 Cr/university for exam automation
+- **PM-USHA:** ₹12,926 Cr scheme; infrastructure grants can fund exam-branch automation
 - **MP State AI Mission (March 2026):** Phase 1 operationalization
 
 ### Scalability Roadmap
@@ -271,22 +272,22 @@ flowchart LR
 
 ## SLIDE 12 — Revenue & Sustainability
 
-**Title:** Commercial Sustainability (10% weight — but shows judges you're serious)
+**Title:** Commercial Sustainability
 
 ### MP Revenue Model (Per-Script SaaS)
 | Component | Rate | Annual (3.04 Cr scripts) |
 |---|---|---|
-| AI Copilot Inference | ₹1.14/booklet | ₹3.47 Cr |
+| AI Copilot Inference | ₹3.00/booklet | ₹9.12 Cr |
 | Seed Calibration + Velocity SaaS | ₹1.50/booklet | ₹4.56 Cr |
 | BSA Dossier Generation | ₹0.50/booklet | ₹1.52 Cr |
 | Command Center License | ₹15L/university × 25 | ₹3.75 Cr |
-| **Total MP Revenue** | | **₹13.30 Cr/year** |
+| **Total MP Revenue** | | **₹18.95 Cr/year** |
 
 ### The MPOnline Opportunity
 > MPOnline earns ₹25 Cr/yr from exam form fees. The evaluation market (₹60–75 Cr/yr) is **completely untapped.** PARIKSHAK-AI lets MPOnline capture it.
 
 ### Funded by Government Grants (Zero University Budget Impact)
-> PM-USHA provides **₹20–40 Cr per university** specifically for examination automation. The solution pays for itself.
+> PM-USHA and RUSA infrastructure grants can fund deployment, limiting the impact on university budgets.
 
 ---
 
@@ -303,7 +304,7 @@ flowchart TB
     end
 
     subgraph SOLUTION["✅ PARIKSHAK-AI"]
-        D["Human-in-the-Loop Copilot<br/>✅ Hindi multimodal vision<br/>✅ Blind seed calibration<br/>✅ Adaptive velocity sentinel<br/>✅ Item-level question slicing<br/>✅ BSA legal dossier<br/>✅ Bolt-on to existing infra<br/>₹1.14/script AI layer"]
+        D["Human-in-the-Loop Copilot<br/>✅ Hindi multimodal vision<br/>✅ Blind seed calibration<br/>✅ Adaptive velocity sentinel<br/>✅ Item-level question slicing<br/>✅ BSA legal dossier<br/>✅ Bolt-on to existing infra<br/>~₹0.5–3/script AI layer (est.)"]
     end
 
     A -.->|"Add AI intelligence"| D
@@ -326,7 +327,8 @@ flowchart TB
 
 1. 🎯 **Problem-First, Not Tech-First:** Every innovation maps directly to the Problem Statement's 10 feature areas
 2. 🔒 **Bolt-On, Not Tear-Down:** Works WITH MPOnline/TCS iON infrastructure. Zero migration risk.
-3. 🏛️ **Citizen-Centric Governance:** Faster results. Fewer grievances. Legal defense in 2 seconds. NEP 2020 + NAAC + PM-USHA compliant.
+3. 🏛️ **Citizen-Centric Governance:** Faster results. Fewer grievances. Audit dossier in one click. Aligned with NEP 2020, NAAC and PM-USHA.
+4. 🛠️ **Already working:** a proof of concept of the examiner copilot, seed calibration, reading-time check and signed dossier runs today.
 
 **Team eMitra | PARIKSHAK-AI (परीक्षक-AI)**
 GitHub: `https://github.com/nishchaydev/Mphack`
@@ -362,7 +364,6 @@ sequenceDiagram
     Note over P: Every 10th script is a BLIND SEED
     
     P->>P: Seed check: Examiner scored 6/10, benchmark is 8/10
-    P->>E: ⚠️ Calibration Alert: "Review rubric for concept coverage"
     P->>D: Flag examiner drift to Head Examiner
 ```
 
@@ -380,7 +381,7 @@ flowchart TB
     subgraph SOVEREIGN["🇮🇳 MP State Data Centre (Sovereign Cloud)"]
         KAFKA["Apache Kafka<br/>Event Stream"]
         STORAGE["Encrypted Object Store<br/>AES-256-GCM"]
-        GPU["GPU Cluster<br/>(Gemini Flash Inference)"]
+        GPU["GPU Cluster<br/>(Self-hosted Indic VLM)"]
         POSTGRES["PostgreSQL<br/>Marks + Audit Trail"]
         REDIS["Redis Cache<br/>Session + Telemetry"]
     end

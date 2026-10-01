@@ -43,11 +43,11 @@ PARIKSHAK-AI introduces an **Enterprise Cognitive Intelligence Layer** designed 
 
 ### Innovation 1: Handwriting Recognition Assistance for Hindi & Hinglish — Native Multimodal Vision
 * **The Industry Failure:** In Madhya Pradesh, an estimated 60%+ of university examinees (B.A., B.Sc., B.Com., B.Ed., LLB) write in Hindi. Standard automated evaluation pipelines use an OCR-first architecture: `Image -> OCR Engine (Tesseract / PaddleOCR) -> Clean Text -> LLM`. On handwritten Hindi answer scripts, open-source OCR exhibits a Character Error Rate (CER) of 35%–55%. Because conjuncts (*Samyuktakshar*) and diacritics (*Matras*) break, the downstream LLM receives corrupted gibberish and hallucinates arbitrary marks.
-* **Our Innovation:** PARIKSHAK-AI bypasses OCR text cascades entirely. The raw image snippet is ingested directly into a multimodal vision architecture (Gemini Flash / Indic Multimodal VLM). The vision encoder processes raw pen strokes in context, evaluating conceptual meaning in standard Hindi, regional dialects (Malwi, Bundelkhandi, Bagheli), and technical Hinglish (e.g., *"ट्रांजिस्टर का कलेक्टर-बेस जंक्शन रिवर्स बायस्ड होता है"*).
+* **Our Innovation:** PARIKSHAK-AI bypasses OCR text cascades entirely. The raw image snippet is ingested directly into a multimodal vision architecture (Gemini Flash / Indic Multimodal VLM). The vision encoder processes raw pen strokes in context, evaluating conceptual meaning in Hindi, English and technical Hinglish (e.g., *"ट्रांजिस्टर का कलेक्टर-बेस जंक्शन रिवर्स बायस्ड होता है"*).
 
 ### Innovation 2: Smart Moderation & Inter-Examiner Consistency — Blind Seed-Script Calibration
 * **The Industry Failure:** State universities in MP suffer from extreme inter-examiner variance. A student’s outcome depends on whether their paper is assigned to a notoriously harsh or lenient examiner. Existing platforms rely on post-facto 5% manual sampling by Head Examiners, which happens days after papers are marked and fails to prevent erroneous result publication.
-* **Our Innovation:** We implement in-flight **Blind Seed-Script Calibration**, a quality-assurance mechanism used by Cambridge Assessment (OCR) and the International Baccalaureate (IB), adapted for the first time for Indian state university operations:
+* **Our Innovation:** We implement in-flight **Blind Seed-Script Calibration**, a quality-assurance mechanism used by Cambridge Assessment (OCR) and the International Baccalaureate (IB), adapted for Indian state university operations:
   * Prior to valuation, Chief Examiners establish benchmark evaluations on 5 "Anchor Scripts" representing defined grade boundaries (Exemplar, Above Average, Average, Borderline, Poor).
   * The system silently inserts these anchor scripts into the daily evaluation stream of examiners.
   * If an examiner’s score on a seed script deviates beyond an allowable tolerance window (±15% of maximum marks), the system detects **Evaluator Drift**.
@@ -70,12 +70,12 @@ PARIKSHAK-AI introduces an **Enterprise Cognitive Intelligence Layer** designed 
 
 ### Innovation 5: Faster Results & Citizen-Centric Governance — Section 63 BSA Cryptographic Dossier
 * **The Industry Failure:** When students challenge arbitrary marks in the MP High Court, universities spend months retrieving physical bundles, issuing show-cause notices, and defending against contempt petitions. Under the **Bharatiya Sakshya Adhiniyam (BSA) 2023, Section 63** (which replaced Section 65B of the Indian Evidence Act), electronic records require authenticated system certificates to be admissible in court.
-* **Our Innovation:** Delivering true **citizen-centric governance**, PARIKSHAK-AI compiles a tamper-evident, court-ready **Section 63 BSA Compliance Dossier** in under 2 seconds:
+* **Our Innovation:** Delivering true **citizen-centric governance**, PARIKSHAK-AI compiles a tamper-evident **audit dossier** in one click, supplying the technical particulars for a Section 63 BSA certificate:
   * Anonymized high-resolution script with verifiable digital stylus annotations.
   * Official university marking scheme and criterion-level point justifications.
   * Verbatim quotes from the student's text supporting every awarded or deducted mark.
   * Chronological dwell-time telemetry proving active examiner reading.
-  * SHA-256 Merkle root hash digitally signed with CDAC e-Hastakshar.
+  * SHA-256 Merkle root, signed and written to a hash-chained ledger (CDAC e-Hastakshar / eSign in production; Ed25519 in our proof of concept).
 
 ### Innovation 6: Item-Level Question Slicing (The Pearson / Cambridge Anti-Halo Standard)
 * **The Industry Failure:** In legacy Indian OSM, a single examiner grades an entire 36-page booklet. This induces the severe **"Halo Effect"** (an examiner underwhelmed by Question 1 unconsciously awards lower marks on subsequent unrelated questions) and prevents subject-topic specialization among faculty.
@@ -94,7 +94,7 @@ PARIKSHAK-AI introduces an **Enterprise Cognitive Intelligence Layer** designed 
 | **Speed Checking** | Static countdown timer (examiner simply waits out lock). | None; evaluates in bulk via API. | **Adaptive Reading Floor ($T_{min}$)** with 3-tier progressive cognitive friction. |
 | **Cheating Detection** | Basic webcam proctoring for computer-based tests. | None. | **Center-Level Cohort Semantic Collusion Engine.** |
 | **Legal Admissibility** | Scanned PDF export without structured justification. | Plain text output; legally non-defensible. | **Section 63 BSA Cryptographic Dossier** with Merkle tree proof. |
-| **Unit Economics** | High software licensing overhead (₹20–₹35/script). | Expensive unoptimized API calls (~₹15–₹25/script). | **₹1.14 per booklet** incremental AI layer over state infrastructure. |
+| **Unit Economics** | High software licensing overhead (₹20–₹35/script). | Expensive unoptimized API calls (~₹15–₹25/script). | **~₹0.5–₹3 per booklet** estimated AI cost; measured per call in our proof of concept. |
 | **Integration Model** | Monolithic replacement of university ERP. | Standalone prototype; no database sinks. | **Stateless REST microservice bolt-on** to MPOnline Oracle DB. |
 
 ---

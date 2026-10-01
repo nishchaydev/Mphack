@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoE Command Centre · PARIKSHAK-AI</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%232a78d6%22/%3E%3Cpath d=%22M8 17l5 5 11-12%22 stroke=%22white%22 stroke-width=%224%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><b>परीक्षक-AI</b><span>PARIKSHAK-AI</span></a>
+    <nav>
+      <a href="/">Examiner workspace</a>
+      <a href="/coe" aria-current="page">CoE command centre</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="chip" id="engine-chip"><span class="dot"></span><span>AI engine</span></span>
+    <button class="btn sm danger" id="reset-btn" type="button">Reset demo</button>
+  </header>
+
+  <main class="coe">
+    <div class="coe-intro">
+      <div>
+        <h1>Controller of Examinations · Command centre</h1>
+        <div class="muted small">Live examiner <b>EX-0417</b> plus five <b>simulated</b> examiners so the patterns are visible. Updates every 2 seconds.</div>
+      </div>
+      <div class="small muted" id="updated">Connecting…</div>
+    </div>
+
+    <section class="kpis" id="kpis" aria-label="Key figures"></section>
+
+    <div class="coe-grid">
+      <div class="coe-col">
+        <section class="card">
+          <div class="section-head"><h2>Examiner integrity</h2><span class="small muted">Mark spread below 1.5 bits suggests rubber-stamping. Seed tolerance 15% of max marks.</span></div>
+          <div class="table-wrap"><table id="examiners"></table></div>
+        </section>
+        <section class="card">
+          <div class="section-head"><h2>Blind seed-script calibration</h2><span class="small muted">Anchor scripts pre-marked by the Chief Examiner, hidden in examiner queues</span></div>
+          <div class="table-wrap"><table id="seeds"></table></div>
+        </section>
+        <section class="card">
+          <div class="section-head"><h2>Head Examiner shadow-review queue</h2><span class="small muted">Routed silently; the examiner's workflow is not interrupted</span></div>
+          <div class="table-wrap"><table id="shadow"></table></div>
+        </section>
+      </div>
+
+      <div class="coe-col">
+        <section class="card">
+          <div class="section-head"><h2>Evaluation ledger and audit dossiers</h2><span class="small muted" id="ledger-meta"></span></div>
+          <div id="ledger"></div>
+        </section>
+        <section class="card">
+          <div class="section-head"><h2>Event stream</h2><span class="small muted mono">exam.evaluation.events (simulated Kafka topic)</span></div>
+          <div class="events" id="events"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast-wrap" id="toasts" aria-live="polite"></div>
+  <script src="/static/js/coe.js"></script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 # 🏛️ PARIKSHAK-AI (परीक्षक-AI)
 
-> **Bhashini-Aligned Cognitive Copilot & Quality Assurance Architecture for On-Screen Marking**  
+> **AI Examiner Copilot & Quality Assurance Architecture for On-Screen Marking (Hindi + English)**  
 > *Technical Proposal & System Architecture for MPOnline Idea & Innovation Hackathon 2026 — Challenge 03*  
 > **Track:** Technical Track | **Team:** eMitra | **Submission Date:** October 1, 2026
 
 [![Hackathon](https://img.shields.io/badge/MPOnline_Hackathon-Challenge_03-blue.svg)](https://innovate.mponline.gov.in)
 [![Track](https://img.shields.io/badge/Track-Technical-orange.svg)]()
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
-[![Architecture](https://img.shields.io/badge/Status-Ideation_%26_Architecture_Ready-teal.svg)]()
+[![Status](https://img.shields.io/badge/Status-Working_Proof_of_Concept-teal.svg)](POC_GUIDE.md)
 [![Compliance](https://img.shields.io/badge/Compliance-DPDP_2023_%7C_BSA_2023_%7C_MeghRaj-purple.svg)]()
 
 ---
@@ -18,7 +18,9 @@
 
 Rather than attempting an unviable "autonomous AI auto-grader" that violates UGC academic statutes, PARIKSHAK-AI operates as a **Human-in-the-Loop (HITL) Examiner Copilot**. It pairs university professors with multimodal intelligence that eliminates human fatigue, catches data entry errors in real time, and produces legally unassailable audit trails.
 
-> ℹ️ **Current Phase:** This repository represents our **Round 1 Idea Submission, Research Dossier, and Complete System Specification**. We have validated core pipeline feasibility (multimodal Indic parsing, dwell-time reading floor, seed calibration, and BSA 2023 legal dossier generation) through isolated technical POC experiments, and established the end-to-end blueprint ready to be built into an interactive working prototype during the on-site hackathon phase (Oct 9–10, 2026 at SSR Global Skills Park, Bhopal).
+> ℹ️ **Current Phase:** This repository contains our **Round 1 submission documents, the system specification, and a working proof of concept** of the core workflow: AI pre-read of handwritten Hindi/English answers against a rubric, the reading-time check, blind seed scripts, and the signed audit dossier with tamper detection. We will extend it during the on-site hackathon (Oct 9–10, 2026, SSR Global Skills Park, Bhopal).
+
+> ▶️ **Run the proof of concept:** `./run.sh` (Windows: `run.bat`), then open http://localhost:8000 (examiner workspace) and http://localhost:8000/coe (CoE command centre). The demo script, what is real versus simulated, and how to measure accuracy are in [POC_GUIDE.md](POC_GUIDE.md).
 
 ---
 
@@ -41,9 +43,8 @@ State higher education evaluation in Madhya Pradesh operates at staggering scale
 
 ### Recent Systemic Failures in MP University Evaluation
 
-1. **Barkatullah University (BU Bhopal, 2024–2026):** Outsourcing result data processing led to an estimated **30% error rate**—present candidates marked absent, double-digit marks truncated to single digits, and over 10,000 student grievances requiring a high-level inquiry panel.
-2. **Devi Ahilya Vishwavidyalaya (DAVV Indore):** Following an evaluation cycle where **3,800 out of 4,000 B.Ed students failed**, protests paralyzed administration. Subsequent tenders for digital On-Screen Marking (OSM) were deferred due to physical security concerns regarding **spine-cutting and sheetfed scanning** that risked page swapping.
-3. **Vikram University (Ujjain):** A tabulation software glitch declared an MBA student with **1604 marks out of 1600** (100.25%), highlighting the absence of basic bounds validation.
+1. **Barkatullah University (BU), Bhopal:** Discrepancies were suspected in around **30% of results** processed by an outsourced agency: candidates who appeared were marked absent, given zero marks or shown wrong subjects, and nearly 10,000 complaints followed.
+2. **Devi Ahilya Vishwavidyalaya (DAVV Indore):** Only about **43% of ~7,200 B.Ed candidates passed** a first-semester exam; allegations of faulty evaluation led to an expert re-evaluation of answer sheets. Digital On-Screen Marking plans were also paused over concerns about **spine-cutting and sheet-fed scanning** that risk page swapping.
 4. **Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV Bhopal):** Physical paper handling vulnerabilities were exposed when 9 sealed question paper bundles were stolen from the confidential examination branch.
 5. **The Economic Toll on Students:** Universities collect **₹30 to ₹45 Crore annually** across MP in non-refundable revaluation fees (₹500 to ₹1,500/paper). Over 80% of these revaluations stem directly from totalization slips, unchecked pages, and evaluator fatigue.
 6. **The Linguistic Gap:** In general degree streams (BA, B.Com, B.Sc, B.Ed, LLB), an estimated **60%+ of students write examinations in Hindi (Devanagari)**. Off-the-shelf OCR engines (Tesseract, PaddleOCR) exhibit Character Error Rates (CER) of **35%–55%** on unconstrained cursive Devanagari, rendering traditional text-first AI pipelines useless.
@@ -54,8 +55,8 @@ State higher education evaluation in Madhya Pradesh operates at staggering scale
 
 PARIKSHAK-AI is specifically architected to comply with recent landmark legal standards in Madhya Pradesh and India:
 
-- **June 2026 MP High Court Ruling (Jabalpur Division Bench):** While upholding digital evaluation for MPMSU, the High Court bench specifically recommended that **examiners evaluate scanned scripts using a digital stylus on touch-screen devices** to mimic conventional marking and eliminate ambiguous deductions.
-- **Section 63, Bharatiya Sakshya Adhiniyam (BSA), 2023:** Having replaced Section 65B of the Indian Evidence Act on July 1, 2024, Section 63 governs the admissibility of electronic records. It mandates cryptographic hash values (**SHA-256**) and formal Schedule Part A/B certification for electronic evidence presented in court.
+- **June 2026 MP High Court Ruling (Jabalpur Division Bench):** While upholding digital evaluation for MPMSU, the High Court bench recommended that **examiners evaluate scanned scripts using a digital stylus on touch-screen devices** to mimic conventional marking and eliminate ambiguous deductions.
+- **Section 63, Bharatiya Sakshya Adhiniyam (BSA), 2023:** Having replaced Section 65B of the Indian Evidence Act on July 1, 2024, Section 63 governs the admissibility of electronic records. It requires a certificate in the form set out in its Schedule (Part A by the person in charge of the device, Part B by an expert), which records the hash values of the electronic record, with SHA-256 among the accepted algorithms.
 - **Ordinance No. 5 (MP Vishwavidyalaya Adhiniyam, 1973):** Governs the conduct of examinations, appointment of examiners, and evaluation center procedures across all state universities.
 
 ---
@@ -75,7 +76,7 @@ No brittle OCR    In-flight seeds  T_min (No hard lock)Center-level     SHA-256 
 ```
 
 ### 1. Direct Multimodal Vision Evaluation for Hindi & Hinglish
-Bypasses the error-prone `Image → OCR → Text → LLM` pipeline entirely. Raw handwritten answer crops are processed directly via multimodal vision encoders (e.g., Gemini 2.0 Flash / Indic Multimodal VLMs), understanding unconstrained Devanagari script, regional idioms, and mixed Hinglish technical terminology (e.g., *"ट्रांजिस्टर का कलेक्टर-बेस जंक्शन रिवर्स बायस्ड होता है"*).
+Bypasses the error-prone `Image → OCR → Text → LLM` pipeline entirely. Raw handwritten answer crops are processed directly via multimodal vision models (current Gemini Flash models, or a self-hosted Indic multimodal VLM in production), reading unconstrained Devanagari and mixed Hinglish technical terminology (e.g., *"ट्रांजिस्टर का कलेक्टर-बेस जंक्शन रिवर्स बायस्ड होता है"*).
 
 ### 2. Blind Seed-Script Calibration (Cambridge / IB Quality Standard)
 To eliminate subjective grading variance across thousands of evaluators, Chief Examiners pre-score 5 benchmark "Anchor Scripts" across performance bands. These are invisibly injected into live examiner queues. If an evaluator drifts beyond a configurable **±15% tolerance window**, the system detects evaluator drift in real-time and routes scripts for moderation before erroneous marks propagate.
@@ -92,11 +93,11 @@ Submissions significantly below $T_{min}$ trigger a **Progressive Friction Proto
 To detect organized mass-copying at compromised rural examination centers, the system runs an offline forensic audit batch calculating the **Residual Plagiarism Index (RPI)** across student answer embeddings, flagging anomalous clusters that exhibit identical syntax, identical non-standard arguments, or identical arithmetic errors.
 
 ### 5. Section 63 BSA Cryptographic Defense Dossier
-Every evaluated booklet automatically generates a court-admissible audit PDF containing:
+Every evaluated booklet gets a one-click, tamper-evident audit PDF containing:
 - High-resolution scanned answer crops with examiner stylus annotations.
 - Analytic rubric breakdown with extracted verbatim text justifications.
-- Biometric dwell-time telemetry proving the examiner read the script.
-- Cryptographic **SHA-256 Merkle root tree** and digital signatures complying with Section 63 of Bharatiya Sakshya Adhiniyam 2023.
+- Dwell-time telemetry showing how long the examiner spent on each page.
+- A signed **SHA-256 Merkle root** on a hash-chained ledger, and the technical particulars for a Section 63 BSA certificate.
 
 ---
 
@@ -126,7 +127,7 @@ PARIKSHAK-AI is explicitly engineered **not** to replace MPOnline's existing sys
 │  ┌─────────────────────────────────────────────────────────────┴────────────────────┐  │
 │  │ FastAPI Cognitive Engine (Python 3.11 / Pydantic v2)                             │  │
 │  │ • Local DocLayout-YOLO: Question-Answer Crop Segmentation                        │  │
-│  │ • Multimodal Vision Inference: Gemini 2.0 Flash / Indic VLM                      │  │
+│  │ • Multimodal Vision Inference: Gemini Flash / Indic VLM                          │  │
 │  │ • Velocity Sentinel & Seed Drift Analyzers                                       │  │
 │  │ • Section 63 BSA Merkle PDF Compiler (ReportLab / WeasyPrint)                   │  │
 │  └──────────────────────────────────────────────────────────────────────────────────┘  │
@@ -141,74 +142,41 @@ PARIKSHAK-AI is explicitly engineered **not** to replace MPOnline's existing sys
 
 ---
 
-## 💻 What We Can Build: Hackathon Prototype Plan
+## 💻 Working Proof of Concept
 
-During the upcoming hackathon development sprint, Team eMitra will implement and demonstrate the core interactive prototype:
-
-```
-Mphack/
-├── README.md                           # Master Architecture & Project Documentation
-├── LICENSE                             # Apache 2.0 Open Source License
-├── .gitignore                          # Clean repository hygiene
-│
-├── submissions/                        # Complete 10-Document Portal Submission Dossier
-│   ├── 01_Solution_Synopsis_Executive_Summary.md
-│   ├── 02_Solution_Presentation.md
-│   ├── 03_Problem_Statement_Proposed_Solution.md
-│   ├── 04_Innovation_Differentiation_Note.md
-│   ├── 05_Impact_Benefits_Document.md
-│   ├── 06_Implementation_Feasibility_Plan.md
-│   ├── 07_Technology_Architecture_Technical_Approach.md
-│   ├── 08_Prototype_Demo_Proof_Of_Concept.md
-│   ├── 09_Code_Repository_Details.md
-│   └── 10_Why_Should_This_Solution_Be_Selected_3000_Chars.txt
-│
-├── backend/                            # FastAPI Cognitive Microservice (Sprint Scope)
-│   ├── main.py                         # App entrypoint & CORS middleware
-│   ├── requirements.txt                # Python dependencies
-│   ├── core/
-│   │   ├── config.py                   # Environment settings & cloud configurations
-│   │   ├── grading_engine.py           # Gemini 2.0 Flash multimodal rubric evaluation
-│   │   ├── velocity_sentinel.py        # Reading floor T_min algorithm & tier logic
-│   │   ├── seed_calibration.py         # In-flight anchor script drift detector
-│   │   └── rti_dossier.py              # Section 63 BSA Merkle tree & PDF compiler
-│   └── api/
-│       ├── routes_grading.py           # Endpoints for question pre-scoring
-│       └── routes_examiner.py          # Examiner workspace session handlers
-│
-└── frontend/                           # React 18 Examiner Workspace PWA (Sprint Scope)
-    ├── package.json                    # Dependencies
-    ├── vite.config.ts                  # Vite build configuration
-    └── src/
-        ├── App.tsx                     # Main application layout
-        └── components/
-            ├── AnswerViewer.tsx        # Fabric.js stylus annotation canvas
-            ├── RubricCopilot.tsx       # AI evidence & 1-click accept panel
-            └── VelocityAlert.tsx       # 3-Tier progressive friction modal
+```bash
+./run.sh          # Windows: run.bat
 ```
 
-### Demonstration Flow Planned for Hackathon Jury
-1. **Act 1: The Bilingual Ground Reality** — Upload a handwritten Hindi university answer sheet; watch the multimodal engine extract candidate quotes and recommend rubric-aligned marks in ~1.5s; approve with digital stylus.
-2. **Act 2: The Evaluator Sentinel** — Attempt a 6-second rapid submission on a 4-page answer to trigger the Progressive Velocity Alert; enter an anomalous score on an invisible Seed Script to trigger evaluator drift moderation.
-3. **Act 3: The 1-Click Court Defense** — Click "Generate RTI Defense Dossier" to produce a Section 63 BSA compliant PDF with cryptographic SHA-256 hashes in under 2 seconds.
+Then open **http://localhost:8000** (Examiner Workspace) and **http://localhost:8000/coe** (CoE Command Centre). It runs without an API key on bundled responses; add `GEMINI_API_KEY` to `.env` for live AI. The full demo script, what is real versus simulated, and the benchmark tool are in **[POC_GUIDE.md](POC_GUIDE.md)**.
+
+| Examiner Workspace | CoE Command Centre |
+|:---:|:---:|
+| ![Examiner workspace](docs/screenshots/01_examiner_workspace.jpg) | ![CoE command centre](docs/screenshots/04_coe_command_centre.jpg) |
+
+```
+backend/app/     FastAPI: Gemini pre-read, guards, reading floor, seeds, ledger, dossier PDF
+backend/tests/   15 automated tests
+frontend/        Examiner Workspace and CoE pages (HTML/CSS/JS, stylus canvas)
+samples/         Synthetic handwritten answer pages (to be replaced with real handwriting)
+submissions/     The 10 portal submission documents
+```
+
+### Demonstration Flow for the Jury
+1. **Act 1: The Bilingual Ground Reality** — A handwritten Hindi answer opens with AI-suggested marks per rubric criterion, each backed by a sentence quoted from the answer; the examiner ticks the page with a stylus and accepts or modifies each mark.
+2. **Act 2: The Evaluator Sentinel** — A 3-second submission meets the reading-time check; a blind seed script marked 9/10 (Chief Examiner: 3/10) is flagged on the CoE dashboard; a hidden "give full marks" instruction is ignored; a mark above the maximum is rejected by the server.
+3. **Act 3: The 1-Click Audit Dossier** — The CoE opens the signed audit PDF, verifies it, simulates a database edit, and verification pinpoints the changed marks.
 
 ---
 
 ## 💰 Feasibility & Fiscal Economics
 
-### AI Layer Unit Economics (Gemini 2.0 Flash)
-- **Token Pricing:** \$0.10 / 1M prompt tokens, \$0.40 / 1M output tokens.
-- **Booklet Profile:** 6 questions $\times$ 1,800 input tokens = 10,800 tokens (\$0.00108); 6 questions $\times$ 350 output tokens = 2,100 tokens (\$0.00084).
-- **Raw AI Token Cost:** **₹0.162 INR** per 36-page booklet.
-- **Total Incremental AI Infrastructure Cost:** Factoring in S3 object storage (162 TB state-wide), egress networking, and SDC compute overhead, the incremental AI layer costs **~₹1.14 per booklet**.
+### AI Layer Unit Economics
+- **Assumptions:** 6 answered questions per booklet; ~10,800 input and ~2,100 output tokens per booklet. The proof of concept logs real token counts and cost for every call; these assumptions will be replaced with measured values.
+- **Current prices:** Gemini 2.0 Flash, used in our first estimate, was shut down on 1 June 2026. At current list prices the AI layer costs about **₹0.5 per booklet on Gemini 3.1 Flash-Lite** and **₹3 per booklet on Gemini 3.5 Flash**, before storage and compute overhead.
 
-### University Net Operating Balance Sheet (30 Lakh Scripts Model)
-| Financial Stream | Legacy Model | With PARIKSHAK-AI | Net Impact |
-|:---|:---:|:---:|:---:|
-| Revaluation Fee Revenue | +₹35.00 Cr | +₹5.00 Cr | -₹30.00 Cr (returned to students) |
-| Physical Answer Book Logistics | -₹12.00 Cr | -₹5.00 Cr | **+₹7.00 Cr Savings** |
-| RTI & High Court Legal Defense | -₹3.50 Cr | -₹0.50 Cr | **+₹3.00 Cr Savings** |
-| Total Net University Position | High Friction | Sustainable | **Surplus maintained; student trust restored** |
+### University Net Operating Balance (estimate, 30 Lakh scripts a year)
+Reduced paper logistics, second-examiner honorariums, data-entry and litigation costs outweigh lower revaluation-fee income and the AI and hosting cost, for an estimated net of about **+₹0.7 Crore a year**. The full table is in [Document 5](submissions/05_Impact_Benefits_Document.md); every line is an estimate to be validated in a pilot.
 
 ---
 
@@ -225,9 +193,9 @@ All 10 documents prepared for the MPOnline Hackathon portal are available in the
 | **05** | [Impact & Benefits Document](./submissions/05_Impact_Benefits_Document.md) | `5. Impact & Benefits *` | Quantified social, educational, and fiscal balance sheet impact metrics |
 | **06** | [Implementation & Feasibility Plan](./submissions/06_Implementation_Feasibility_Plan.md) | `6. Implementation & Feasibility Plan *` | 4-phase rollout roadmap, infrastructure sizing, and risk mitigation matrix |
 | **07** | [Technology Architecture & Technical Approach](./submissions/07_Technology_Architecture_Technical_Approach.md) | `7. Technology Architecture & Technical Approach *` | Complete 5-stage architecture specification, data flows, and security protocols |
-| **08** | [Prototype / Demo / Proof of Concept](./submissions/08_Prototype_Demo_Proof_Of_Concept.md) | `8. Prototype / Demo / Proof of Concept *` | Prototype technical specification, 3-act demo workflow, and validated POC code |
+| **08** | [Prototype / Demo / Proof of Concept](./submissions/08_Prototype_Demo_Proof_Of_Concept.md) | `8. Prototype / Demo / Proof of Concept *` | Working proof of concept: what is built, screenshots, 3-act demo, how accuracy will be measured |
 | **09** | [Code Repository Details](./submissions/09_Code_Repository_Details.md) | `9. Code Repository URL *` | Repository specification, architecture quickstart, and file catalog |
-| **10** | [Why Should This Solution Be Selected](./submissions/10_Why_Should_This_Solution_Be_Selected_3000_Chars.txt) | `10. Why should this solution be selected *` | 2,953-character summary pitch formatted specifically for the portal character limit |
+| **10** | [Why Should This Solution Be Selected](./submissions/10_Why_Should_This_Solution_Be_Selected_3000_Chars.txt) | `10. Why should this solution be selected *` | Summary pitch within the portal's 3,000-character limit |
 
 ---
 
