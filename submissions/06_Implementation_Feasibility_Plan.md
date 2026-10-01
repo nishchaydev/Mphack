@@ -43,6 +43,14 @@ PARIKSHAK-AI is engineered with a **Non-Invasive Microservice Architecture**. It
 │  [ PHASE 4: STATEWIDE INSTITUTIONAL SCALE ] ──► 2028 Onwards                    │
 │  • Full coverage across all 25 State Public Universities (3.0+ Crore booklets)  │
 │  • Integration with DigiLocker and National Academic Depository (NAD / ABC)     │
+│  • Citizen-centric governance: transparent result portals and diagnostic cards   │
+│                                                                                 │
+│  [ PHASE 5: NATIONAL EXPANSION & MULTI-LANGUAGE SCALE ] ──► 2029 Onwards        │
+│  • Replicate to 3–5 high-demand states: UP, Rajasthan, Bihar, Maharashtra, CG   │
+│  • Extend multimodal vision to additional Indic scripts: Bangla, Tamil, Telugu   │
+│  • Serve non-university examination bodies: CBSE, State Boards, ICAI, Pharmacy  │
+│  • White-label SaaS offering through MPOnline/TCS iON partnership network       │
+│  • Pan-India TAM: 49 Crore scripts/year (AISHE 2022-23, ₹10,000+ Cr market)   │
 │                                                                                 │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -98,3 +106,24 @@ Prior to Phase 2 university pilot commissioning, PARIKSHAK-AI will undergo forma
 1. **STQC Directorate Clearance:** Functional and performance testing for electronic governance applications under Ministry of Electronics and Information Technology (MeitY) guidelines.
 2. **CERT-In Empaneled Security VAPT:** Rigorous vulnerability assessment and penetration testing verifying zero Broken Object Level Authorization (BOLA/IDOR) flaws.
 3. **University Executive Council Resolutions:** Amending Ordinance No. 5 across participating universities to formally recognize digital assistive evaluation and Section 63 BSA electronic audit trails.
+
+---
+
+## 7. Commercial Sustainability & Revenue Model
+
+### A. SaaS Pricing Architecture (Per-Script Transaction Model)
+PARIKSHAK-AI operates as a **zero-capex AI intelligence layer** atop existing OSM scanning infrastructure, charging a per-booklet transaction fee:
+
+| Component | Unit Cost | Volume (MP Statewide) | Annual Revenue |
+| :--- | :--- | :--- | :--- |
+| AI Copilot Inference (Gemini Flash) | ₹1.14 / booklet | 3.04 Crore scripts | ₹3.47 Crore |
+| Seed Calibration & Velocity Sentinel SaaS | ₹1.50 / booklet | 3.04 Crore scripts | ₹4.56 Crore |
+| Section 63 BSA Dossier Generation | ₹0.50 / booklet | 3.04 Crore scripts | ₹1.52 Crore |
+| Command Center Dashboard (Annual License) | ₹15 Lakh / university | 25 universities | ₹3.75 Crore |
+| **Total MP Annual Revenue** | | | **₹13.30 Crore** |
+
+### B. Strategic Alignment with MPOnline's Revenue Expansion
+MPOnline currently earns ~₹25 Crore/year from higher education form fees alone. The evaluation market (₹60–₹75 Crore/year for 3.04 Crore scripts across MP) remains **uncaptured revenue** lost to fragmented private vendor tenders. PARIKSHAK-AI enables MPOnline to expand from upstream form collection into high-value downstream evaluation processing—doubling higher education revenue without additional kiosk infrastructure.
+
+### C. Funding via PM-USHA & RUSA Grants
+MP state universities are eligible for **₹20 to ₹40 Crore per institution** under PM-USHA (₹12,926 Crore national outlay) specifically for examination automation and IT infrastructure. PARIKSHAK-AI deployment qualifies as a **PM-USHA-compliant examination reform investment**, making the solution **self-funded from central government grants** rather than university operating budgets.

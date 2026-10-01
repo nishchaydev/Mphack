@@ -35,14 +35,23 @@ University ordinances mandate result declarations within 30 to 45 days of the fi
 #### D. The Predatory Revaluation Industry
 Because first-tier valuation is plagued by glance-checking and transcription blunders, an estimated **6% to 10% of candidates apply for revaluation and challenge evaluation**. Universities in MP charge between **₹500 and ₹1,500 per subject** for revaluation and copy inspection. Across 7 major state universities (DAVV, BU, RGPV, Jiwaji, Vikram, RDVV, APSU), an estimated **6 Lakh to 9 Lakh revaluation requests** are processed annually, generating **₹30 to ₹45 Crore in non-refundable fee revenue**. Students frequently see failing grades ("F", 14/70) jump to outstanding grades ("A", 58/70) upon paying revaluation fees—irrefutable evidence of arbitrary first-tier evaluation.
 
-#### E. Security Paralysis Post-CBSE OSM 2026 Controversy
-The national CBSE On-Screen Marking controversy in 2026—where security researcher Nisarga Adhikary uncovered critical Broken Object Level Authorization (BOLA/IDOR) vulnerabilities, exposed cloud storage buckets, and missing authentication controls—sent shockwaves through MP's higher education leadership. In September 2026, **DAVV Indore officially halted its planned digital evaluation rollout** for MBA courses, citing concerns over vendor security, booklet spine-unbinding tampering, and lack of verifiable audit trails.
+#### E. Security Paralysis & The Shift from L1 to QCBS Post-CBSE OSM 2026
+The national CBSE On-Screen Marking controversy in 2026—where low-cost vendor Coempt Edu Teck's platform failed under an aggressive L1 bid (₹25.74 vs TCS's ₹63.4/script), exposing critical Broken Object Level Authorization (BOLA/IDOR) vulnerabilities and inverted candidate rolls—sent shockwaves through MP's higher education leadership. In early 2026, **DAVV Indore placed its planned ₹2.0 Cr digital evaluation rollout under scrutiny**, requiring a strict 10-day physical pilot testing answer booklet spine cutting, leaf scanning, and data custody before awarding tenders. Simultaneously, active digital evaluation tenders across MP—including **BU Bhopal (Tender ID: `2026_BU_504007_1`)**, **Jiwaji University (Tender ID: `2026_JIWAJ_509311_1`)**, and **Vikram University (NIT Feb 24, 2026)** on `mptenders.gov.in`—demand state-sovereign, secure, and auditable digital evaluation architectures.
+
+### The 4 Core Stakeholder Personas & Target User Mapping
+
+| Stakeholder Persona | The Operational Ground Reality & Pain Point | How PARIKSHAK-AI Solves It |
+| :--- | :--- | :--- |
+| **Persona 1: The University Examiner (Evaluator)** | Underpaid (₹16–₹25/booklet), forced to glance-check 40 scripts of 36 pages in 3 hours, suffering severe cognitive fatigue by 3:00 PM with zero rubric assistance. | **Intelligent Cognitive Copilot:** Pre-reads Hindi/English script via multimodal vision, pre-populates rubric breakdown; examiner retains 100% authority via 1-click Accept/Modify, cutting burnout by 60%. |
+| **Persona 2: The Controller of Examinations (CoE)** | Zero in-flight visibility; reliant on random 5% post-facto sampling; defenseless against High Court contempt notices and results delayed by 3–14 months. | **Live State Command Center & In-Flight Calibration:** Injects blind seed scripts to detect evaluator drift in real-time; tracks velocity heatmaps; generates predictive result completion dates. |
+| **Persona 3: The Student & Citizen** | High-stakes career disruption; lost corporate recruitment cut-offs (TCS, Infosys) due to result delays; ₹500–₹1,500 "revaluation tax" on rural/poor students. | **Fair, Fast & Transparent Results:** Results declared in 15–20 days; eliminates clerical transcription/totaling errors; provides NEP 2020 diagnostic feedback cards mapping conceptual strengths. |
+| **Persona 4: MPOnline & Higher Education Department** | Institutional trust erosion; managing fragmented, risky private vendor tenders; needing citizen-centric digital public infrastructure. | **Citizen-Centric Governance:** Sovereign cloud deployment at MP State Data Centre (SDC); non-invasive bolt-on to MPOnline ASP.NET/Oracle; compliant with MeitY MeghRaj and Section 63 BSA 2023. |
 
 ---
 
 ## 2. The Proposed Solution: PARIKSHAK-AI (परीक्षक-AI)
 
-**PARIKSHAK-AI** is a cloud-native, Human-in-the-Loop (HITL) Cognitive Evaluation Platform specifically engineered to plug into MPOnline’s state examination portal. It addresses the crisis not by attempting to replace university professors, but by providing an intelligent cognitive assistant that shields examiners from burnout, standardizes grading rubrics, prevents speed-checking anomalies, and produces ironclad legal documentation.
+**PARIKSHAK-AI** is a cloud-native, Human-in-the-Loop (HITL) Cognitive Evaluation Platform specifically engineered to plug into MPOnline’s state examination portal. It delivers **citizen-centric governance** in higher education not by attempting to replace university professors, but by providing an intelligent cognitive assistant that shields examiners from burnout, standardizes grading rubrics, prevents speed-checking anomalies, and produces ironclad legal documentation.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

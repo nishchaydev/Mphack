@@ -560,7 +560,50 @@ Per-script cost does NOT decrease significantly (₹18-33 → ₹19-34). The sav
 
 ---
 
-## 15. SUBMISSION STATUS
+## 15. JUDGING CRITERIA & POINT STRATEGY
+
+### Official Scoring Weights (Technical Track)
+
+| # | Criteria | Weight | Our Strength |
+|---|---------|:---:|:---:|
+| 01 | **Innovation & Originality** — Uniqueness, creativity of the proposed solution | **20%** | 🟢 Strong (seed calibration, velocity sentinel — nobody else has these) |
+| 02 | **Problem Understanding** — Clarity of problem, relevance, understanding of target users | **15%** | 🟢 Strong (real MP incidents, real scale data, real stakeholder pain) |
+| 03 | **Technical Feasibility** — Practicality of technology, architecture, implementation approach | **15%** | 🟢 Good (all tech choices verified, feasibility-audited) |
+| 04 | **Prototype / MVP** — Functionality, completeness, usability of working prototype | **20%** | 🔴 Zero code exists yet — THIS IS THE #1 PRIORITY |
+| 05 | **Impact on Higher Ed / Governance** — Meaningful improvements in higher education, public services | **15%** | 🟢 Strong (28L students, ₹30Cr revaluation burden, Hindi-medium inclusion) |
+| 06 | **Scalability & Sustainability** — Wider adoption, long-term sustainability, adaptability | **10%** | 🟡 Needs work (add other states, other exam types, revenue model) |
+| 07 | **Presentation & Demo** — Communication clarity, demo quality, storytelling | **5%** | 🟡 Depends on team presentation skills |
+
+### Critical Insight for Prototype Builder
+**Innovation (20%) + Prototype (20%) = 40% of total score.** These two categories alone decide the winner. Our innovation is strong. The prototype is the gap. Build these features in this priority order:
+
+1. **P0 — Examiner Copilot UI** (React + Fabric.js canvas with split-view: scanned answer left, AI suggestion right)
+2. **P0 — Live Gemini API grading** (upload handwritten answer image → get structured JSON rubric breakdown)
+3. **P0 — Velocity Alert modal** (try to submit marks too fast → warning pops up with reading time math)
+4. **P1 — Seed Script drift badge** (enter wrong score on a calibrated anchor → system catches the deviation)
+5. **P1 — 1-Click BSA PDF export** (generate a court-admissible evaluation dossier with SHA-256 hash)
+6. **P2 — CoE Dashboard** (Recharts charts showing examiner speed heatmap, scoring distribution)
+
+### USP Alignment Note (Zeshan Framework)
+Our 3 strongest USPs trace directly to the Problem Statement features:
+- **Hindi Multimodal Vision** ← PS Feature #1 (AI-assisted evaluation) + #5 (Handwriting recognition)
+- **Blind Seed Calibration** ← PS Feature #4 (Smart moderation) + #3 (Examiner analytics) + #8 (Malpractice detection)
+- **Velocity Sentinel** ← PS Feature #2 (Unchecked answers) + #3 (Examiner analytics) + #8 (Malpractice detection)
+
+Lead the pitch with PS keywords ("faster, more consistent, catches anomalies"), then explain HOW our tech delivers each one. Don't lead with tech jargon.
+
+### 4 Stakeholder Personas to Address
+
+| Stakeholder | Their Pain | What We Give Them |
+|---|---|---|
+| **Examiner (Professor)** | ₹15/copy, 40 copies/day, fatigued by hour 4, no AI help | AI copilot pre-reads answers, suggests marks, 1-click accept |
+| **Controller of Examinations (CoE)** | No visibility into evaluation quality, reactive moderation | Real-time dashboard, seed calibration alerts, predictive timelines |
+| **Student** | 3-14 month result delays, ₹500 revaluation fee, opaque marking | Faster results (20-30 days), transparent rubric breakdown, fewer errors |
+| **MPOnline / University Admin** | Integration risk, vendor lock-in, CBSE security fears | Bolt-on microservice, zero disruption, BSA-compliant audit trail |
+
+---
+
+## 16. SUBMISSION STATUS
 
 ### What's Done ✅
 - [x] All 10 submission documents written and fact-checked
@@ -594,4 +637,209 @@ Mphack/
 
 > **This document is the single source of truth.** Any agent or team member reading this has everything needed to continue development, prepare for jury questions, or verify any claim we make in our submission.
 >
-> *Compiled from: 8 parallel deep research agents, 3 fact-checking agents, 1 feasibility auditor, competitive intelligence scans across 8 vendors, and verified legal/policy analysis. September 30 – October 1, 2026.*
+> *Compiled from: 8 parallel deep research agents, 3 fact-checking agents, 1 feasibility auditor, 4 deep-research blitz agents, competitive intelligence scans across 8 vendors, and verified legal/policy analysis. September 30 – October 1, 2026.*
+
+---
+
+## 16. Deep Research Blitz — October 1, 2026 (4 Parallel Agents)
+
+### 16.1 TCS iON & International Benchmarks (Verified)
+
+#### TCS iON iDM — Full Feature Set (Verified)
+- **Ingestion:** High-speed sheet-fed scanners, automated barcode/QR masking, page deskewing
+- **Workflow:** Single Marking, Double Blind Marking, Moderation/Chief Examiner Review (auto-forward on >10% variance)
+- **Evaluation Interface:** Side-by-side display (question paper + model answer + script), annotation palette, item-level step-wise scoring
+- **Quality Controls:** Mandatory 100% page visit check, unassessed question alert blocks submit, auto-totaling, dwell-time enforcement (8-12 min/script), daily quota caps (30-40 scripts/day)
+- **Digital Marking Hub:** Managed crowd-sourcing portal for verified evaluator network
+- **Command Center:** Real-time dashboards, full immutable audit trail
+
+#### TCS iON AI Capability: NONE for Subjective Grading
+- 100% human-driven evaluation for handwritten scripts
+- NO Hindi/Devanagari OCR capability
+- AI used ONLY for: remote proctoring, MCQ auto-grading, typed English NLP (TCS NQT), command center anomaly detection
+
+#### CBSE OSM 2026 Controversy — The Real Story
+- **Coempt Edu Teck (formerly Globarena) won the CBSE bid, NOT TCS**
+- Coempt bid: ₹25.74/script (L1 aggressive). TCS bid: ₹63.4/script
+- Coempt scored 91/100 technically vs TCS 89/100
+- Coempt's platform CRASHED: blurred scans, barcode identity mismatches, missing supplemental sheets
+- Fallout: PILs in Allahabad HC & Supreme Court, CBSE Chair/Secretary removed, probe committee (S. Radha Chauhan)
+- **Market shift: Death of L1 bidding → QCBS (Quality & Cost Based Selection, 70:30 or 80:20)**
+
+#### TCS iON Pricing (Verified from Tenders)
+| Model | Rate |
+|---|---|
+| Mega-scale boards (>1 Cr scripts, CBSE level) | ₹60–₹65/script |
+| State university turnkey (5–30 Lakh scripts) | ₹38–₹55+/script |
+| Software-only SaaS (university owns scanners) | ₹14–₹22/script |
+| Examiner remuneration (separate, paid by university) | ₹20–₹45/script |
+
+#### TCS iON Clients (Verified)
+- **Boards:** HPBOSE, GBSHSE, SEBA/AHSEC (Assam), MBOSE (Meghalaya)
+- **Universities:** MAKAUT (WB), Kazi Nazrul University (WB), KNRUHS (Telangana), EFLU (Hyderabad), Dayananda Sagar (Bengaluru), Manav Rachna, IIM Indore
+
+#### Cambridge RM Assessor (The Gold Standard)
+- **Item-Level Marking:** Slices booklets into individual question clips routed to specialized markers
+- **Seed Calibration:** Blind seeds injected 1-in-7-to-10 scripts; ±tolerance checking; auto-lockout after 2 consecutive failures; Team Leader intervention required
+- **Script Recall:** Can purge and re-allocate ALL live scripts from a disqualified examiner with a single click
+- **Pricing:** £1.50–£4.50+ per script (~₹160–₹500+)
+- **Used by:** Cambridge Assessment (OCR, CIE), IB Diploma Programme, Scottish Qualifications Authority, Caribbean Examinations Council
+
+#### Pearson ePEN/ePEN2
+- **Item-Level Response Slicing:** Examiner A marks Q1 across 1000 students; Examiner B marks Q2 → eliminates Halo Effect
+- **System Inserted Responses (SIR):** Pre-graded validity items injected into live streams
+- **Three-Tier Training:** Familiarisation → Practice → Qualification (80%+ accuracy required before live marking)
+- **AI for typed English ONLY** (PTE Academic). NO AI for handwritten GCSE/A-Level
+
+### 16.2 Policy & Regulatory Findings (Verified)
+
+#### NAAC Key Indicator 2.5 (Evaluation Process & Reforms)
+- **Metric 2.5.1:** Result turnaround days. Top points for <15-30 days
+- **Metric 2.5.2:** % student grievances vs total appearances. Requires digital grievance tracking
+- **Metric 2.5.3:** Qualitative assessment of IT integration & EMS automation extent
+- **NAAC 2024-25 Reform:** AI-powered Data Validation & Verification (DVV). Credibility Score 0.0-1.0. 3-year debarment for fabricated data
+
+#### UGC Salunkhe Committee Guidelines
+- Mandates OBE (Outcome-Based Education): map questions to COs/POs/Bloom's Taxonomy
+- Advocates On-Screen Evaluation (OSE/OSM)
+- Does NOT mandate autonomous AI grading (but heavily incentivizes AI-assisted tools)
+
+#### NEP 2020 Exact Clause References
+- **Section 4.35:** Mandates 360° Holistic Progress Card + AI-based student analytics
+- **Section 12.2:** Criterion-based grading, move away from high-stakes single exams
+- **Section 23.2:** Explicitly names AI, ML, blockchains for education
+- **Section 23.8:** Recognizes AI can match/outperform human prediction; tasks NETF
+- **Section 4.41:** Mandates establishment of PARAKH
+
+#### PARAKH (Performance Assessment, Review & Analysis of Knowledge)
+- Established Feb 2023 under NCERT per NEP 2020 Para 4.41
+- Technical partner: **ETS (Educational Testing Service)** — the GRE/TOEFL organization
+- Sept 2025: Designated sole authority for Class 10/12 board equivalence for university admissions
+
+#### Active MP Digital Evaluation Tenders (2025-2026) — VERIFIED
+| University | Tender ID / Reference |
+|---|---|
+| Barkatullah University (BU Bhopal) | `2026_BU_504007_1` on `mptenders.gov.in` |
+| Jiwaji University (Gwalior) | `2026_JIWAJ_509311_1`, Ref `F./J.U./Store/2026/69` |
+| Vikram University (Ujjain) | NIT dated February 24, 2026 |
+| RGPV (Bhopal) | `RGPV/EXAM/SCANNING/2025/02` and `/03` |
+| DAVV (Indore) | ~₹2.0 Cr tender; 10-day mandatory pilot before award |
+
+#### MeghRaj/GI Cloud Requirements
+- 100% data sovereignty within Indian territory. Zero cross-border transmission
+- Mandatory STQC certification + ISO 27001/27017/27018/20000-1
+- CERT-In: 6-hour incident reporting, 180-day log retention, Safe-to-Host certificate
+- Procurement via GeM portal only
+- **Empanelled CSPs:** AWS (Mumbai/Hyderabad), Azure (Pune/Chennai/Mumbai), GCP (Mumbai/Delhi NCR), OCI, CtrlS, ESDS, Sify, NTT, Yotta, Tata Communications, RailTel, BSNL, Pi, Cloud4C
+
+#### PM-USHA (Pradhan Mantri Uchchatar Shiksha Abhiyan)
+- Total outlay: **₹12,926.10 Crore** (through FY 2025-26)
+- Explicitly mandates "Examination and Evaluation Reforms" and "100% automation of Examination Divisions"
+- Available per university: **₹20-₹40 Crore** for IT infrastructure + examination automation
+- MERU grants: up to **₹100 Crore** per accredited state university
+
+#### Education Budget (Verified)
+- FY 2026-27: Total Education allocation ₹1,39,000 Crore; Higher Education: **₹55,727 Crore**
+- PM-ONOS: ₹2,200 Crore for centralized journal access
+
+### 16.3 Academic Research & Technical Benchmarks (Verified)
+
+#### AI Handwritten Grading — Current State of the Art
+| Paper / System | Key Finding |
+|---|---|
+| Caraeni et al. (LAK 2025, arXiv:2411.05231) | GPT-4o on handwritten math exams: Pearson r = 0.60–0.72. **Insufficient for autonomous grading** |
+| Cai et al. (2025, arXiv:2502.04639) | Rank-Then-Score: +0.12–0.18 QWK improvement over zero-shot |
+| Harada et al. (NAACL 2025, arXiv:2502.06202) | Reflect-and-Revise rubric optimization: +0.403 QWK improvement |
+| GradeAI (2025/2026) | Handwritten short answers: QWK 0.52–0.68 (zero-shot) → 0.70–0.74 (with rubrics + pre-cropping) |
+| Human inter-rater ceiling (Baird et al., OUCEA) | Two expert humans: QWK **0.78–0.86** |
+
+#### Hindi/Devanagari Specific
+- Two-stage pipeline (HTR → NLP): Pearson r = 0.65–0.78, QWK 0.60–0.72
+- Primary bottleneck: CER 8–18% in Stage 1 HTR
+- **HindiOCR-VLM** (Bhattacharyya et al., ICDAR 2025): Progressive VLM LoRA adaptation → new SOTA for Hindi handwriting
+
+#### Automated Essay Scoring SOTA (Typed Text Benchmarks)
+| Corpus | SOTA QWK | Model |
+|---|---|---|
+| Kaggle ASAP 1 (2012, 8 prompts) | 0.80–0.85 aggregate; **0.936** on Prompt 7 | DeBERTa-v3-large, RoBERTa-TAT |
+| Kaggle AES 2.0 (2024) | 0.835–0.845 | 40+ model ensemble (DeBERTa + LightGBM + Nelder-Mead) |
+| English handwritten (OCR + AES) | 0.72–0.81 | TrOCR-large + DeBERTa-v3 |
+| Hindi typed text | 0.62–0.76 | MuRIL, IndicBERT, IndicBART, mT5 |
+| Hindi handwritten + OCR | **0.50–0.68** | Two-stage pipeline |
+
+#### DocLayout-YOLO (Verified — arXiv:2410.12628)
+- Authors: Zhao, Kang, Wang, He (OpenDataLab, Shanghai AI Lab)
+- Built on YOLOv10 with Global-to-Local Controllable Receptive Module (GL-CRM)
+- **DocLayNet: 79.7% mAP@0.5:0.95** at >100 FPS
+- Trained on DocSynth-300K (synthetic) + DocLayNet + D4LA + DocStructBench
+- **For exam booklets:** Needs fine-tuning on custom annotated exam datasets with classes: `[printed_question, handwritten_answer, sub_question_num, diagram_sketch, examiner_mark_box]`
+
+#### Gemini 2.0 Flash — Verified Capabilities
+- **DocVQA: 93.2%** (test set)
+- **TextVQA: ~88.9%**
+- Multimodal homework grading demoed in Gemini 1.0 paper (arXiv:2312.11805, Section 5.2.2)
+- Post-OCR correction: reduces CER/WER by 40–60%
+- **Hindi handwriting limitation:** Legible continuous writing works well; dense/degraded scripts with faint matras need >1024×1024px resolution and explicit script-domain prompting
+
+#### Examiner Behavior Analytics (Academic Evidence)
+- **Bramley (2012), Cambridge Assessment Research Matters:** OSM telemetry analysis. <45s on 15-mark essay = divergence from consensus
+- **Baird et al. (OUCEA):** Leniency drift after 2-3 hours + harshness spikes from fatigue
+- **Blind seeding impact (Ofqual/Cambridge):** Reduces inter-rater error variance by **25-35%**
+- **Multi-Facet Rasch Measurement (MFRM):** Infit/Outfit 0.7-1.3 = consistent; >1.5 = disqualify examiner
+
+#### Indian Government AI Initiatives
+- **Bhashini (NLTM):** P-OCR, HW-OCR, ST-OCR APIs for 22 scheduled languages; Shoonya crowdsourcing platform
+- **IIIT Hyderabad CVIT (Prof. C.V. Jawahar):** IIIT-INDIC-HW-WORDS benchmark, Mozhi dataset (1.2M+ word images across 13 scripts), ICDAR 2024 HWD competition
+- **AI4Bharat (IIT Madras):** IndicTrans2, IndicConformer, IndicBERT, Airavata, Shoonya annotation platform
+- **Saral App (EkStep Foundation):** Deployed at massive scale in UP Nipun Bharat Mission for OMR + handwriting grading of primary school assessments
+
+### 16.4 Business Case & Financial Model (Verified)
+
+#### True Cost of Manual Evaluation (Hidden Costs)
+| Cost Component | Per Script |
+|---|---|
+| Evaluator remuneration | ₹16–₹50 |
+| Fictitious roll numbering / masking | ₹3–₹5 |
+| Physical secure logistics (police escort) | ₹4–₹8 |
+| Central Evaluation Center overhead (hall, DA, TA) | ₹6–₹12 |
+| Manual marks entry & tabulation | ₹4–₹6 |
+| Physical warehousing (6 months–3 years) | ₹3–₹5 |
+| Secure disposal & shredding | ₹1–₹2 |
+| **TRUE TOTAL** | **₹45–₹75/script** |
+
+#### Digital OSM Vendor Pricing (Market Benchmarks)
+| Vendor / Model | Rate |
+|---|---|
+| Turnkey end-to-end (most common) | ₹18–₹28.50/script |
+| MeritTrac (Mumbai University, 2017) | ₹23.50/script |
+| Recent state university tenders (KA, MP, UP) | ₹21–₹25.75/script |
+| SaaS platform-only | ₹8–₹14/script |
+| Scanning only | ₹0.20–₹0.35/page |
+
+#### Total Addressable Market (TAM) — AISHE 2022-23
+- India: 4.46 Crore students × 11 exams/year = **~49 Crore scripts/year**
+- National turnkey market: **₹10,793 Crore/year**
+- **Madhya Pradesh:** 27.7 Lakh students × 11 = **3.04 Crore scripts/year** → **₹66.88 Crore/year**
+
+#### Revaluation Statistics (RTI-Verified)
+- Mumbai University (RTI, Vihar Durve): **36.1% of revaluation applicants** were wrongly failed
+- Anna University (DVAC Probe 2017): 3 Lakh revaluation applications; marks-for-cash racket uncovered
+- MP universities: BU revaluation fee ₹200/subject + ₹25 MPOnline portal fee
+
+#### MPOnline Revenue from Higher Education (Verified)
+- MPOnline: 51:49 JV between MPSEDC & TCS (est. 2006). 28,000+ kiosks. Net profit ₹15.54 Cr (FY21)
+- Exam form portal fees alone: **₹19.39 Crore/year** (55.4 Lakh forms × ₹35 avg)
+- Total higher education revenue: **₹25–₹30 Crore/year**
+- **Untapped evaluation market:** ₹60–₹75 Crore/year (currently lost to fragmented private tenders)
+
+#### Key Academic Citations for Submission Documents
+1. Zhao et al. (2024). DocLayout-YOLO. arXiv:2410.12628
+2. Caraeni et al. (2025). GPT-4 Handwritten Grading. arXiv:2411.05231 / LAK 2025
+3. Cai et al. (2025). Rank-Then-Score AES. arXiv:2502.04639
+4. Harada et al. (2025). Reflect-and-Revise Rubrics. arXiv:2502.06202 / NAACL 2025
+5. Bhattacharyya et al. (2025). HindiOCR-VLM. ICDAR 2025
+6. Gemini Team (2024). Gemini 1.5. arXiv:2403.05530
+7. Gemini Team (2023). Gemini Foundation. arXiv:2312.11805
+8. Bramley (2012). Seed Scripts & Quality Assurance. Cambridge Assessment Research Matters
+9. Baird et al. (2011). Marking Consistency. Oxford OUCEA
+10. Meadows & Billington (2013). Marker Background Effects. Ofqual/AQA
